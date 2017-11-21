@@ -1,0 +1,192 @@
+extends layout
+block head
+    script.
+
+        let carouselValues = [
+            "Full-stack developer",
+            "Hypixel Moderator",
+            "RPI Student"
+        ]
+        let carouselIndex = 0;
+
+        $("#carousel").ready(function() {
+            let $next = $(".next");
+            let $current = $(".current");
+            let $slide = $(".slide");
+            function nextElement() {
+                if (++carouselIndex > carouselValues.length - 1) carouselIndex = 0;
+
+                $next.find("h3").text(carouselValues[carouselIndex]);
+                $slide.animate({
+                    opacity: "toggle",
+                    left: "-=300px",
+                    overflow: "hidden",
+                    duration: 300
+                }, function () {
+                    $current.find("h3").text(carouselValues[carouselIndex]);
+                    $next.css({left: "300px", display: "none"});
+                    $current.css({left: 0, display: "inherit"})
+                })
+            }
+
+            setInterval(nextElement, 3000);
+        });
+
+        $("#tabs").ready(function() {
+            let clickTimeout;
+
+            $(".tab").click(function() {
+                $(".tab").removeClass('tab-active');
+                $(this).addClass('tab-active');
+
+                let fadeTime = 200;
+                $(".tab").each(function() {
+                    $($(this).data("target")).removeClass("content-active")
+                    $($(this).data("target")).fadeOut(fadeTime);
+                })
+
+                let thisTmp = this;
+                if(clickTimeout !== null) clearTimeout(clickTimeout)
+                clickTimeout = setTimeout(function() {
+                    $($(thisTmp).data("target")).fadeIn(fadeTime, function() {
+                        $($(thisTmp).data("target")).addClass("content-active")
+                    });
+                }, 400)
+            })
+        })
+
+        $(document).ready(function() {
+            $("a[data-target=\"" + window.location.hash + "\"]:visible").click()
+
+            $("a").click(function(event) {
+                if(this.hash !== "") {
+                    event.preventDefault();
+
+                    $("html").animate({
+                        scrollTop: $(this.hash).offset().top,
+                        duration: 500
+                    });
+                }
+            });
+        });
+
+
+block content
+    div#intro
+        div#intro-content
+            h1#name Hi, I'm Erik
+            img#me(src="images/buggy.jpg")
+
+            div#carousel
+                div.current.slide
+                    h3 Full-stack developer
+                div.next.slide
+                    h3 Hypixel Moderator
+
+            a(href="https://github.com/bugfroggy")
+                i.fab.fa-github.fa-3x.social
+            a(href="https://twitter.com/bugfroggy")
+                i.fab.fa-twitter.fa-3x.social
+            a(href="https://hypixel.net/members/bugfroggy.52450/")
+                i.fac.fa-hypixel.fa-3x.social
+
+        a(href="#portfolio")
+            i.fal.fa-angle-down.fa-5x#down-arrow
+
+    div.container
+        div#portfolio
+            h2 Portfolio
+            div#tabs
+                a.tab.tab-active(data-target="#minecraft-modding") Minecraft Modding
+                a.tab(data-target="#karaoke") Karaoke Panel
+                a.tab(data-target="#watchdogger") Watchdogger
+                a.tab(data-target="#image-sharing") Image Sharing
+                hr
+
+            div#minecraft-modding.tab-content.content-active
+                div.left-text
+                    h3 Minecraft Modding
+                    p
+                        | I started coding Minecraft mods in the Summer of 2017 using my minimal prior Java knowledge.
+                        | My first mod was a mod called&nbsp;
+                        a(href="https://hypixel.net/threads/1317410/") "QuickPlay,"
+                        |  which to this day, is my most popular mod with tens of thousands of users.
+                        | Some of my other Minecraft mods:
+                    ul
+                        li
+                            a(href="minecraft.curseforge.com/projects/advancedxp") AdvancedXP
+                        li
+                            a(href="minecraft.curseforge.com/projects/animated-crosshair") Animated Crosshair
+
+                div.right-image
+                    img(src="images/quickplay.png").screenshot
+                    p.subtext Screenshot of Quickplay Minecraft Mod
+            div#karaoke.tab-content
+                div.left-text
+                    h3 Karaoke Panel
+                    p
+                        | I joined the Hypixel Karaoke team sometime in 2015. Not long after, I became a team leader
+                        | , taking on the role of furthering team resources and creating whatever content is needed
+                        | by the team.
+
+                    p
+                        | This is one of the biggest projects I have taken on, and the team's web panel allows for
+                        | things such as (but not limited to!) full singing signup management, team communication
+                        | systems, an automated Hypixel Housing integration, and Discord user authentication.
+
+                    p
+                        a(href="https://hypixelkaraoke.me/") Click here to visit it.
+                div.right-image
+                    img(src="images/karaoke-dashboard.png").screenshot
+                    p.subtext Screenshot of the team's private dashboard for handling events
+            div#watchdogger.tab-content
+                div.left-text
+                    h3 Watchdogger
+                    p
+                        | In January of 2016, the Hypixel network released their new advanced Minecraft cheat detection
+                        | system called Watchdog. Initially, there was an API that provided data that was limited to the
+                        | number of bans it executed in the last 60 seconds. That was it.
+
+                    p
+                        | This was the inspiration for creating my website, Watchdogger. It was designed to track every
+                        | minute of Watchdog's bans and store them in a database, for long-term tracking. I've used this
+                        | data to create a website listing Watchdog's accomplishments.
+
+                    p
+                        a(href="https://bugg.co/watchdogger") Click here to visit it.
+                div.right-image
+                    img(src="images/watchdog.png").screenshot
+            div#image-sharing.tab-content
+                div
+                    h3 Image Sharing
+                    p
+                        | For a while, I didn't have an image-sharing service that I liked. They were all either slow,
+                        | poor quality, cost money, or didn't have a good archive service. I made my own! It's not
+                        | available to the public at the moment, but eventually!
+
+                    p
+                        a(href="https://bugg.co/i/") Click here to visit it.
+        div#about
+            h2 About
+            p
+                | I was born and raised in Virginia. At the age of 12, I built my first desktop computer with my father.
+                | My skills and interests expanded further. I always wanted to make cool things on the computer, but
+                | never knew how. That's when, in 2013, I taught myself HTML and CSS.
+
+            p
+                | I continued to work on my skills and I am now fluent in PHP, Java, Javascript/JQuery/Node.js,
+                | and HTML/CSS. Currently I plan on studying Computer Science at Rensselear Polytechnic Institute
+                | in the Fall of 2018.
+
+            p
+                | In addition to this, I have also been a Moderator on The Hypixel Network, the world's largest
+                | Minecraft server, for 3+ years. You may find my profile there by&nbsp
+                a(href="https://hypixel.net/members/52450/") clicking here
+                |.
+        div#contact
+            h2 Contact
+            h4 Business Email
+
+        div#footer
+            p#copyright Copyright © bugfroggy 2017
+            hr

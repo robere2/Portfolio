@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter')
+
+$defaultColor: #31A56F
+
+html
+  overflow-x: hidden
+body
+  margin: 0
+  font: 14px "Bitter", serif
+  overflow-x: hidden
+a
+  color: $defaultColor
+  -webkit-transition: color 0.2s
+  -moz-transition: color 0.2s
+  -ms-transition: color 0.2s
+  -o-transition: color 0.2s
+  transition: color 0.2s
+
+a:hover
+  @extend a
+  color: #79f2b9
+  -webkit-transition: color 0.2s
+  -moz-transition: color 0.2s
+  -ms-transition: color 0.2s
+  -o-transition: color 0.2s
+  transition: color 0.2s
+
+h1
+  font-size: 60px
+  margin-top: 0
+  @media(max-height: 600px)
+    font-size: 50px
+  @media(min-height: 1600px)
+    font-size: 150px
+h2
+  font-size: 44px
+h3
+  font-size: 28px
+  @media(min-height: 1600px)
+    font-size: 60px
+h4
+  font-size: 18px
+
+@mixin border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+.container
+  width: 80%
+  min-height: calc(100vh - 100px)
+  margin: 0 auto
+  position: relative
+  padding-bottom: 80px
+  @media(max-width: 450px)
+    width: 90%
+  @media(min-width: 800px)
+    width: 65%
+
+#name
+  @media(max-height: 600px)
+    margin-bottom: 5px
+#intro
+  background-image: radial-gradient(circle at center, $defaultColor 0%, #2A8C5E 100%)
+  width: 100vw
+  height: 100vh
+  color: #ffffff
+  box-shadow: #999 0 7px 15px
+  text-shadow: #2e8350 7px 7px 15px
+
+  text-align: center
+
+
+  a
+    color: #ffffff
+    -webkit-transition: color 0.2s
+    -moz-transition: color 0.2s
+    -ms-transition: color 0.2s
+    -o-transition: color 0.2s
+    transition: color 0.2s
+
+  a:hover
+    @extend a
+    color: #79f2b9
+    -webkit-transition: color 0.2s
+    -moz-transition: color 0.2s
+    -ms-transition: color 0.2s
+    -o-transition: color 0.2s
+    transition: color 0.2s
+
+  #me
+    width: 200px
+    box-shadow: #2e8350 7px 7px 15px
+    @include border-radius(10px)
+    border: solid 2px white
+    @media (max-height: 600px)
+      width: 150px
+    @media (max-height: 320px)
+      width: 100px
+
+#intro-content
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 100%
+
+#carousel
+  width: 100%
+  height: 100px
+  overflow: hidden
+  position: relative
+  @media(min-height: 1600px)
+    margin-bottom: 200px
+  .slide
+    position: absolute
+    margin-left: 50%
+    overflow: hidden
+    transform: translateX(-50%)
+  .next
+    display: none
+    left: 300px
+
+.social
+  margin: 0 8px
+  @media (max-height: 800px)
+    display: none
+    visibility: hidden
+
+#down-arrow
+  display: inline-block
+  position: absolute
+  bottom: 0
+  transform: translate(-50%, -50%)
+
+#portfolio
+  margin-top: 50px
+  min-height: 380px
+  width: 100%
+  h2
+    padding-top: 30px
+
+#tabs
+  width: 100%
+
+  .tab
+    background: none
+    border: none
+    display: inline-block
+    padding: 10px 10px 5px
+    border-bottom: #ccc solid 2px
+    z-index: 100
+    cursor: pointer
+    position: relative
+    font: 14px "Bitter", serif
+    color: #999999
+    transition: color 0.2s, border-color 0.2s
+
+    @media (max-width: 635px)
+      visibility: hidden
+      display: none
+
+  .tab:active, .tab:focus, .tab-active
+    @extend .tab
+    border-color: $defaultColor
+    color: $defaultColor
+    transition: all 0.2s
+  hr
+    position: relative
+    border: none
+    top: -9px
+    border-bottom: #ccc 2px solid
+    z-index: 10
+
+.tab-content:not(.content-active)
+  @media (min-width: 635px)
+    display: none
+
+.left-text
+  @media (min-width: 635px)
+    width: 50%
+    float: left
+.right-image
+  width: 45%
+  max-width: 500px
+  float: right
+  position: relative
+  text-align: center
+  @media (max-width: 635px)
+    visibility: hidden
+    display: none
+.screenshot
+  width: 100%
+  border-radius: 10px
+  margin-bottom: 0
+
+.subtext
+  margin: 0
+  color: #777
+
+.fa-3x
+  @media (min-height: 1600px)
+    font-size: 6em !important
+
+#about
+  min-height: 200px
+
+#footer
+  position: absolute
+  bottom: 0
+  width: 100%
+  min-height: 80px
+  hr
+    position: relative
+    border: none
+    top: -35px
+    z-index: 10
+    border-bottom: #ccc 2px solid
+  #copyright
+    margin-left: 5%
+    color: #ccc
+    padding: 5px
+    display: inline-block
+    position: relative
+    z-index: 100
+    background-color: #ffffff
