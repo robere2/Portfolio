@@ -1,6 +1,33 @@
 extends layout
 block head
+    script(src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoadCallback&render=explicit", async, defer)
     script.
+        function recaptchaLoadCallback() {
+            grecaptcha.render('recaptcha', {
+                'sitekey': '6LdJzDkUAAAAAJYKLpiY4Eyrg-ga6Ho0AWWf1Xm6',
+                'callback': getEmail,
+                'size': "invisible",
+                'badge': "inline"
+            });
+            $("#contact").ready(function () {
+                grecaptcha.execute()
+            });
+        }
+
+        function getEmail(token) {
+            console.log(token);
+            $.ajax({
+                url: "captcha",
+                method: "GET",
+                data: {
+                    token: token
+                },
+                dataType: "json"
+
+            }).done(function(res) {
+                console.log(res);
+            })
+        }
 
         let carouselValues = [
             "Full-stack developer",
@@ -186,6 +213,7 @@ block content
         div#contact
             h2 Contact
             h4 Business Email
+            div#recaptcha.g-recaptcha
 
         div#footer
             p#copyright Copyright © bugfroggy 2017
