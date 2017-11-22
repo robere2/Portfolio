@@ -125,7 +125,7 @@ h4 {
 
 .social {
   margin: 0 8px; }
-  @media (max-height: 700px) {
+  @media (max-height: 725px) {
     .social {
       display: none;
       visibility: hidden; } }
