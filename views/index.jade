@@ -96,7 +96,7 @@ block head
                 if(this.hash !== "") {
                     event.preventDefault();
 
-                    $("html").animate({
+                    $("html, body").animate({
                         scrollTop: $(this.hash).offset().top,
                         duration: 500
                     });

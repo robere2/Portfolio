@@ -109,7 +109,8 @@ h4 {
   width: 100%;
   height: 100px;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  white-space: nowrap; }
   @media (min-height: 1600px) {
     #carousel {
       margin-bottom: 200px; } }
@@ -124,9 +125,6 @@ h4 {
 
 .social {
   margin: 0 8px; }
-  @media (max-width: 550px) {
-    .social {
-      margin-top: 24px; } }
   @media (max-height: 700px) {
     .social {
       display: none;
