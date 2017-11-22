@@ -17,7 +17,7 @@ router.get('/captcha', function(req, res, next) {
         (req.connection.socket ? req.connection.socket.remoteAddress : null);
 
     request.post("https://www.google.com/recaptcha/api/siteverify", {
-        postData: {
+        form: {
             'content-type' : 'application/x-www-form-urlencoded',
             secret: recaptchaSecrets.secret,
             response: token,
@@ -30,7 +30,7 @@ router.get('/captcha', function(req, res, next) {
         } else if(body) {
             let captchaRes = JSON.parse(body);
 
-            if(captchaRes.ok) {
+            if(captchaRes.success) {
                 resJson.ok = true;
                 resJson.email = recaptchaSecrets.email
             } else {

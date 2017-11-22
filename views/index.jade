@@ -25,7 +25,14 @@ block head
                 dataType: "json"
 
             }).done(function(res) {
-                console.log(res);
+                if(res.ok) {
+                    $("#email").html($("<a></a>").attr("href", "mailto:" + res.email).text(res.email));
+                } else {
+                    $("#email").text("Error retrieving email.");
+                }
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown.toString());
+                $("#email").text("Error retrieving email.");
             })
         }
 
@@ -212,9 +219,15 @@ block content
                 |.
         div#contact
             h2 Contact
-            h4 Business Email
-            div#recaptcha.g-recaptcha
-
+            div#content
+                h4 Business Email
+                p#email Loading...
+                h4 Other
+                p#contact-social
+                    a(href="https://twitter.com/bugfroggy") Twitter
+                    a(href="https://github.com/bugfroggy") Github
+                    a(href="https://hypixel.net/members/52450") Hypixel
+        div#recaptcha.g-recaptcha
         div#footer
             p#copyright Copyright © bugfroggy 2017
             hr
