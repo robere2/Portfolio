@@ -25,7 +25,7 @@ app.use(sassMiddleware({
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), {maxAge: 7 * 24 * 60 * 60 * 1000}));
 
 // Defining our pages
 app.use('/', index);
