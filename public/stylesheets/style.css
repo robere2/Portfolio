@@ -6,26 +6,60 @@ body {
   font: 14px "Bitter", serif;
   overflow-x: hidden; }
 
+a, a:hover, #intro a:hover {
+  color: #31A56F;
+  -webkit-transition: color 0.2s;
+  -moz-transition: color 0.2s;
+  -ms-transition: color 0.2s;
+  -o-transition: color 0.2s;
+  transition: color 0.2s; }
+
+a:hover, #intro a:hover {
+  color: #79f2b9;
+  -webkit-transition: color 0.2s;
+  -moz-transition: color 0.2s;
+  -ms-transition: color 0.2s;
+  -o-transition: color 0.2s;
+  transition: color 0.2s; }
+
 h1 {
   font-size: 60px;
   margin-top: 0; }
-  @media (max-height: 600px) {
-    h1 {
-      font-size: 50px; } }
-  @media (min-height: 1600px) {
-    h1 {
-      font-size: 150px; } }
+@media(max-height: 600px) {
+  h1 {
+    font-size: 50px; } }
+@media(min-height: 1600px) {
+  h1 {
+    font-size: 150px; } }
+h2 {
+  font-size: 44px; }
 
 h3 {
   font-size: 28px; }
-  @media (min-height: 1600px) {
-    h3 {
-      font-size: 60px; } }
+@media(min-height: 1600px) {
+  h3 {
+    font-size: 60px; } }
+h4 {
+  font-size: 18px; }
 
-@media (max-height: 600px) {
+h5 {
+  font-size: 15px; }
+
+.container {
+  width: 80%;
+  min-height: calc(100vh - 100px);
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 80px; }
+@media(max-width: 450px) {
+  .container {
+    width: 90%; } }
+@media(min-width: 800px) {
+  .container {
+    width: 65%; } }
+@media(max-height: 600px) {
   #name {
     margin-bottom: 5px; } }
-
 #intro {
   background-image: radial-gradient(circle at center, #31A56F 0%, #2A8C5E 100%);
   width: 100vw;
@@ -75,9 +109,9 @@ h3 {
   overflow: hidden;
   position: relative;
   white-space: nowrap; }
-  @media (min-height: 1600px) {
-    #carousel {
-      margin-bottom: 200px; } }
+@media(min-height: 1600px) {
+  #carousel {
+    margin-bottom: 200px; } }
   #carousel .slide {
     position: absolute;
     margin-left: 50%;
@@ -91,12 +125,129 @@ h3 {
   margin: 0 8px; }
   @media (max-height: 725px) {
     .social {
-      display: none; } }
+      display: none;
+      visibility: hidden; } }
 
 #down-arrow {
   display: inline-block;
   position: absolute;
   bottom: 0;
   transform: translate(-60%, -50%); }
+
+#portfolio {
+  margin-top: 50px;
+  min-height: 380px;
+  width: 100%; }
+  #portfolio h2 {
+    padding-top: 30px; }
+
+#tabs {
+  width: 100%; }
+  #tabs .tab, #tabs .tab:active, #tabs .tab:focus, #tabs .tab-active {
+    background: none;
+    border: none;
+    display: inline-block;
+    padding: 10px 10px 5px;
+    border-bottom: #ccc solid 2px;
+    z-index: 100;
+    cursor: pointer;
+    position: relative;
+    font: 14px "Bitter", serif;
+    color: #999999;
+    transition: color 0.2s, border-color 0.2s; }
+    @media (max-width: 635px) {
+      #tabs .tab, #tabs .tab:active, #tabs .tab:focus, #tabs .tab-active {
+        visibility: hidden;
+        display: none; } }
+  #tabs .tab:active, #tabs .tab-active:active, #tabs .tab:focus, #tabs .tab-active:focus, #tabs .tab-active {
+    border-color: #31A56F;
+    color: #31A56F;
+    transition: all 0.2s; }
+  #tabs hr {
+    position: relative;
+    border: none;
+    top: -9px;
+    border-bottom: #ccc 2px solid;
+    z-index: 10; }
+
+@media (min-width: 635px) {
+  .tab-content:not(.content-active) {
+    display: none; } }
+
+@media (min-width: 635px) {
+  .left-text {
+    width: 50%;
+    float: left; } }
+
+.right-image {
+  width: 45%;
+  max-width: 500px;
+  float: right;
+  position: relative;
+  text-align: center; }
+  @media (max-width: 635px) {
+    .right-image {
+      visibility: hidden;
+      display: none; } }
+
+.screenshot {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0; }
+
+.subtext {
+  margin: 0;
+  color: #777; }
+
+@media (min-height: 1600px) {
+  .fa-3x {
+    font-size: 6em !important; } }
+
+#about {
+  clear: both;
+  min-height: 200px; }
+  #about #skills .col-2 {
+    padding: 0 20px;
+    width: 100%;
+    float: left;
+    border-left: 2px solid #aaaaaa; }
+    @media (min-width: 550px) {
+      #about #skills .col-2 {
+        width: calc(50% - 22px * 2);
+        min-height: 350px; } }
+
+#contact {
+  padding-top: 10px;
+  clear: both; }
+  #contact #content {
+    padding-left: 20px; }
+  #contact h4, #contact h2 {
+    margin-bottom: 5px; }
+  #contact #contact-social a {
+    display: inline-block;
+    margin-right: 10px; }
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 80px; }
+  #footer hr {
+    position: relative;
+    border: none;
+    top: -35px;
+    z-index: 10;
+    border-bottom: #ccc 2px solid; }
+  #footer #copyright {
+    margin-left: 5%;
+    color: #ccc;
+    padding: 5px;
+    display: inline-block;
+    position: relative;
+    z-index: 100;
+    background-color: #ffffff; }
+
+#recaptcha {
+  margin-top: 50px; }
 
 /*# sourceMappingURL=style.css.map */

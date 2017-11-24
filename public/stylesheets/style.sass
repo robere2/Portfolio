@@ -38,6 +38,8 @@ h3
     font-size: 60px
 h4
   font-size: 18px
+h5
+  font-size: 15px
 
 @mixin border-radius($radius)
   -webkit-border-radius: $radius
@@ -202,10 +204,21 @@ h4
     font-size: 6em !important
 
 #about
-  min-height: 200px
   clear: both
+  min-height: 200px
+  #skills
+    .col-2
+      padding: 0 20px
+      width: 100%
+      float: left
+      border-left: 2px solid #aaaaaa
+      @media (min-width: 550px)
+        width: calc(50% - 22px * 2)
+        min-height: 350px
 
 #contact
+  padding-top: 10px
+  clear: both
   #content
     padding-left: 20px
   h4, h2
