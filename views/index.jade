@@ -82,12 +82,17 @@ block head
             let clickTimeout;
 
             $(".tab").click(function() {
-                $(".tab").removeClass('tab-active');
+                let $tab = $(".tab");
+                $tab.removeClass('tab-active');
                 $(this).addClass('tab-active');
 
                 let fadeTime = 200;
-                $(".tab").each(function() {
-                    $($(this).data("target")).removeClass("content-active")
+                $tab.each(function() {
+                    if($($(this).data("target")).hasClass("content-active")) {
+                        console.log("Hi");
+                        $($(this).data("target")).removeClass("content-active")
+                        $($(this).data("target")).css({display: "block"});
+                    }
                     $($(this).data("target")).fadeOut(fadeTime);
                 })
 
