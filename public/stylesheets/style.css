@@ -25,20 +25,22 @@ a:hover, #intro a:hover {
 h1 {
   font-size: 60px;
   margin-top: 0; }
-@media(max-height: 600px) {
-  h1 {
-    font-size: 50px; } }
-@media(min-height: 1600px) {
-  h1 {
-    font-size: 150px; } }
+  @media (max-height: 600px) {
+    h1 {
+      font-size: 50px; } }
+  @media (min-height: 1600px) {
+    h1 {
+      font-size: 150px; } }
+
 h2 {
   font-size: 44px; }
 
 h3 {
   font-size: 28px; }
-@media(min-height: 1600px) {
-  h3 {
-    font-size: 60px; } }
+  @media (min-height: 1600px) {
+    h3 {
+      font-size: 60px; } }
+
 h4 {
   font-size: 18px; }
 
@@ -55,15 +57,17 @@ hr {
   margin: 0 auto;
   position: relative;
   padding-bottom: 80px; }
-@media(max-width: 450px) {
-  .container {
-    width: 90%; } }
-@media(min-width: 800px) {
-  .container {
-    width: 65%; } }
-@media(max-height: 600px) {
+  @media (max-width: 450px) {
+    .container {
+      width: 90%; } }
+  @media (min-width: 800px) {
+    .container {
+      width: 65%; } }
+
+@media (max-height: 600px) {
   #name {
     margin-bottom: 5px; } }
+
 #intro {
   background-image: radial-gradient(circle at center, #31A56F 0%, #2A8C5E 100%);
   width: 100vw;
@@ -113,9 +117,9 @@ hr {
   overflow: hidden;
   position: relative;
   white-space: nowrap; }
-@media(min-height: 1600px) {
-  #carousel {
-    margin-bottom: 200px; } }
+  @media (min-height: 1600px) {
+    #carousel {
+      margin-bottom: 200px; } }
   #carousel .slide {
     position: absolute;
     margin-left: 50%;
@@ -241,6 +245,14 @@ hr {
   #footer #copyright {
     margin-left: 5%;
     color: #ccc;
+    padding: 5px;
+    display: inline-block;
+    position: relative;
+    z-index: 100;
+    background-color: #ffffff; }
+  #footer #source {
+    float: right;
+    margin-right: 5%;
     padding: 5px;
     display: inline-block;
     position: relative;
