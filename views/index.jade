@@ -9,7 +9,7 @@ block head
                 'size': "invisible",
                 'badge': "inline"
             });
-            $("#contact").ready(function () {
+            $("#email button").click(function () {
                 grecaptcha.execute()
             });
         }
@@ -27,11 +27,11 @@ block head
                 if(res.ok) {
                     $("#email").html($("<a></a>").attr("href", "mailto:" + res.email).text(res.email));
                 } else {
-                    $("#email").text("Error retrieving email.");
+                    $("#email #err").text("Error retrieving email.");
                 }
             }).fail(function(jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown.toString());
-                $("#email").text("Error retrieving email.");
+                $("#email #err").text("Error retrieving email.");
             })
         }
 
@@ -270,7 +270,9 @@ block content
             h2 Contact
             div#content
                 h4 Business Email
-                p#email Loading...
+                div#email
+                    button Show Email
+                    p#err
                 h4 Other
                 p#contact-social
                     a(href="https://twitter.com/bugfroggy") Twitter
