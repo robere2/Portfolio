@@ -10,6 +10,8 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 
+const pathData = require("../private/path_data");
+
 /**
  * Get port from environment and store in Express.
  */
@@ -23,8 +25,8 @@ app.set('port', port);
 let server;
 let credentials = {};
 try {
-    let cert = fs.readFileSync("/etc/certificates/bugg.co/cert.pem");
-    let private_key = fs.readFileSync("/etc/certificates/bugg.co/private-key.pem");
+    let cert = fs.readFileSync(pathData.cert);
+    let private_key = fs.readFileSync(pathData.privatekey);
 
     credentials.cert = cert;
     credentials.key = private_key;
