@@ -262,4 +262,19 @@ hr {
 #recaptcha {
   margin-top: 50px; }
 
+#email {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px; }
+
+button {
+  background-color: #31A56F;
+  padding: 7px 10px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-bottom: 3px solid #2e8350;
+  border-radius: 5px;
+  font: 14px "Bitter", serif; }
+
 /*# sourceMappingURL=style.css.map */
