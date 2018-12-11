@@ -6,21 +6,20 @@ body {
   font: 14px "Bitter", serif;
   overflow-x: hidden; }
 
-a, a:hover, #intro a:hover {
+a {
   color: #31A56F;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
   -o-transition: color 0.2s;
   transition: color 0.2s; }
-
-a:hover, #intro a:hover {
-  color: #79f2b9;
-  -webkit-transition: color 0.2s;
-  -moz-transition: color 0.2s;
-  -ms-transition: color 0.2s;
-  -o-transition: color 0.2s;
-  transition: color 0.2s; }
+  a:hover {
+    color: #69d3a2;
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s; }
 
 h1 {
   font-size: 60px;
@@ -49,7 +48,7 @@ h5 {
 
 hr {
   border: none;
-  border-bottom: #ccc 2px solid; }
+  border-bottom: #d0d0d0 2px solid; }
 
 .container {
   width: 80%;
@@ -69,30 +68,30 @@ hr {
     margin-bottom: 5px; } }
 
 #intro {
-  background-image: radial-gradient(circle at center, #31A56F 0%, #2A8C5E 100%);
+  background-image: radial-gradient(circle at center, #31A56F 0%, #257e55 100%);
   width: 100vw;
   height: 100vh;
   color: #ffffff;
-  box-shadow: #999 0 7px 15px;
-  text-shadow: #2e8350 7px 7px 15px;
+  box-shadow: #AAAAAA 0 7px 15px;
+  text-shadow: #257e55 7px 7px 15px;
   text-align: center; }
-  #intro a, #intro a:hover {
+  #intro a {
     color: #ffffff;
     -webkit-transition: color 0.2s;
     -moz-transition: color 0.2s;
     -ms-transition: color 0.2s;
     -o-transition: color 0.2s;
     transition: color 0.2s; }
-  #intro a:hover {
-    color: #79f2b9;
-    -webkit-transition: color 0.2s;
-    -moz-transition: color 0.2s;
-    -ms-transition: color 0.2s;
-    -o-transition: color 0.2s;
-    transition: color 0.2s; }
+    #intro a:hover {
+      color: #69d3a2;
+      -webkit-transition: color 0.2s;
+      -moz-transition: color 0.2s;
+      -ms-transition: color 0.2s;
+      -o-transition: color 0.2s;
+      transition: color 0.2s; }
   #intro #me {
     width: 200px;
-    box-shadow: #2e8350 7px 7px 15px;
+    box-shadow: #257e55 7px 7px 15px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -203,7 +202,7 @@ hr {
 
 .subtext {
   margin: 0;
-  color: #777; }
+  color: #919191; }
 
 @media (min-height: 1600px) {
   .fa-3x {
@@ -212,12 +211,12 @@ hr {
 #timeline {
   clear: both; }
   #timeline .timeline {
-    border-left: 3px solid #aaa;
+    border-left: 3px solid #AAAAAA;
     padding-bottom: 20px; }
     @media (min-width: 635px) {
       #timeline .timeline {
         width: 50%;
-        border-right: 3px solid #aaa;
+        border-right: 3px solid #AAAAAA;
         border-left: none; } }
   #timeline .tl-item {
     transition: opacity 0.5s ease-in-out, left 0.5s ease-in-out;
@@ -281,7 +280,7 @@ hr {
     padding: 0 20px;
     width: 100%;
     float: left;
-    border-left: 2px solid #aaaaaa; }
+    border-left: 2px solid #AAAAAA; }
     @media (min-width: 550px) {
       #skills .col-2 {
         width: calc(50% - 22px * 2);
@@ -309,7 +308,7 @@ hr {
     z-index: 10; }
   #footer #copyright {
     margin-left: 5%;
-    color: #ccc;
+    color: #d0d0d0;
     padding: 5px;
     display: inline-block;
     position: relative;
@@ -338,11 +337,11 @@ button {
   color: white;
   font-weight: bold;
   border: none;
-  border-bottom: 3px solid #2e8350;
+  border-bottom: 3px solid #257e55;
   border-radius: 5px;
   font: 14px "Bitter", serif; }
   button:active {
-    background-color: #2e8350;
+    background-color: #257e55;
     line-height: 0.9em;
     padding-top: 0.9em; }
 

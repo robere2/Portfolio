@@ -1,4 +1,6 @@
-$defaultColor: #31A56F
+$primaryColor: #31A56F
+$grayColor: #AAAAAA
+$mobileSize: 635px
 
 html
   overflow-x: hidden
@@ -6,22 +8,19 @@ body
   margin: 0
   font: 14px "Bitter", serif
   overflow-x: hidden
-a
-  color: $defaultColor
-  -webkit-transition: color 0.2s
-  -moz-transition: color 0.2s
-  -ms-transition: color 0.2s
-  -o-transition: color 0.2s
-  transition: color 0.2s
 
-a:hover
-  @extend a
-  color: #79f2b9
+@mixin colorTransform
   -webkit-transition: color 0.2s
   -moz-transition: color 0.2s
   -ms-transition: color 0.2s
   -o-transition: color 0.2s
   transition: color 0.2s
+a
+  color: $primaryColor
+  @include colorTransform
+  &:hover
+    color: lighten($primaryColor, 20%)
+    @include colorTransform
 
 h1
   font-size: 60px
@@ -42,7 +41,7 @@ h5
   font-size: 15px
 hr
   border: none
-  border-bottom: #ccc 2px solid
+  border-bottom: lighten($grayColor, 15%) 2px solid
 
 @mixin border-radius($radius)
   -webkit-border-radius: $radius
@@ -64,36 +63,26 @@ hr
   @media(max-height: 600px)
     margin-bottom: 5px
 #intro
-  background-image: radial-gradient(circle at center, $defaultColor 0%, #2A8C5E 100%)
+  background-image: radial-gradient(circle at center, $primaryColor 0%, darken($primaryColor, 10%) 100%)
   width: 100vw
   height: 100vh
   color: #ffffff
-  box-shadow: #999 0 7px 15px
-  text-shadow: #2e8350 7px 7px 15px
+  box-shadow: $grayColor 0 7px 15px
+  text-shadow: darken($primaryColor, 10%) 7px 7px 15px
 
   text-align: center
 
 
   a
     color: #ffffff
-    -webkit-transition: color 0.2s
-    -moz-transition: color 0.2s
-    -ms-transition: color 0.2s
-    -o-transition: color 0.2s
-    transition: color 0.2s
-
-  a:hover
-    @extend a
-    color: #79f2b9
-    -webkit-transition: color 0.2s
-    -moz-transition: color 0.2s
-    -ms-transition: color 0.2s
-    -o-transition: color 0.2s
-    transition: color 0.2s
+    @include colorTransform
+    &:hover
+      color: lighten($primaryColor, 20%)
+      @include colorTransform
 
   #me
     width: 200px
-    box-shadow: #2e8350 7px 7px 15px
+    box-shadow: darken($primaryColor, 10%) 7px 7px 15px
     @include border-radius(10px)
     border: solid 2px white
     @media (max-height: 600px)
@@ -160,26 +149,26 @@ hr
     color: #999999
     transition: color 0.2s, border-color 0.2s
 
-    @media (max-width: 635px)
+    @media (max-width: $mobileSize)
       visibility: hidden
       display: none
 
-  .tab:active, .tab:focus, .tab-active
-    @extend .tab
-    border-color: $defaultColor
-    color: $defaultColor
-    transition: all 0.2s
+    &:active, &:focus, .tab-active
+
+      border-color: $primaryColor
+      color: $primaryColor
+      transition: all 0.2s
   hr
     position: relative
     top: -9px
     z-index: 10
 
 .tab-content:not(.content-active)
-  @media (min-width: 635px)
+  @media (min-width: $mobileSize)
     display: none
 
 .left-text
-  @media (min-width: 635px)
+  @media (min-width: $mobileSize)
     width: 50%
     float: left
 .right-image
@@ -188,7 +177,7 @@ hr
   float: right
   position: relative
   text-align: center
-  @media (max-width: 635px)
+  @media (max-width: $mobileSize)
     visibility: hidden
     display: none
 .screenshot
@@ -198,7 +187,7 @@ hr
 
 .subtext
   margin: 0
-  color: #777
+  color: darken($grayColor, 10%)
 
 .fa-3x
   @media (min-height: 1600px)
@@ -208,11 +197,11 @@ hr
   clear: both
 
   .timeline
-    border-left: 3px solid #aaa
+    border-left: 3px solid $grayColor
     padding-bottom: 20px
-    @media(min-width: 635px)
+    @media(min-width: $mobileSize)
       width: 50%
-      border-right: 3px solid #aaa
+      border-right: 3px solid $grayColor
       border-left: none
 
   .tl-item
@@ -221,16 +210,16 @@ hr
     // Green dot
     &:before
       border-radius: 25px
-      background-color: $defaultColor
+      background-color: $primaryColor
       width: 20px
       height: 20px
       display: inline-block
       content: "."
-      color: $defaultColor
+      color: $primaryColor
       position: relative
       left: 11px
       top: 55px
-      @media(max-width: 635px)
+      @media(max-width: $mobileSize)
         left: -11px
 
     position: relative
@@ -246,7 +235,7 @@ hr
       height: 0
       overflow: visible
       position: relative
-      @media(max-width: 635px)
+      @media(max-width: $mobileSize)
         display: none
       img
         top: 30px
@@ -259,7 +248,7 @@ hr
           left: 70%
       &:not([data-shown^="true"])
         left: -100%
-      @media(min-width: 635px)
+      @media(min-width: $mobileSize)
         text-align: right
 
     &.tl-right, &:nth-child(odd):not(.tl-left)
@@ -267,7 +256,7 @@ hr
         left: -70%
       &:not([data-shown^="true"])
         left: 100%
-      @media(min-width: 635px)
+      @media(min-width: $mobileSize)
         &:before // Green dot
           left: -9px
         left: 100%
@@ -281,7 +270,7 @@ hr
     padding: 0 20px
     width: 100%
     float: left
-    border-left: 2px solid #aaaaaa
+    border-left: 2px solid $grayColor
     @media (min-width: 550px)
       width: calc(50% - 22px * 2)
       min-height: 320px
@@ -308,7 +297,7 @@ hr
     z-index: 10
   #copyright
     margin-left: 5%
-    color: #ccc
+    color: lighten($grayColor, 15%)
     padding: 5px
     display: inline-block
     position: relative
@@ -333,15 +322,15 @@ hr
   margin-bottom: 20px
 
 button
-  background-color: $defaultColor
+  background-color: $primaryColor
   padding: 7px 10px
   color: white
   font-weight: bold
   border: none
-  border-bottom: 3px solid #2e8350
+  border-bottom: 3px solid darken($primaryColor, 10%)
   border-radius: 5px
   font: 14px "Bitter", serif
   &:active
-    background-color: #2e8350
+    background-color: darken($primaryColor, 10%)
     line-height: 0.9em
     padding-top: 0.9em
