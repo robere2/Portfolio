@@ -60,6 +60,9 @@ block head
             let $current = $(".current");
             let $slide = $(".slide");
             function nextElement() {
+                if(document.hidden) // Do nothing if the document is hidden
+                    return;
+
                 if (++carouselIndex > carouselValues.length - 1) carouselIndex = 0;
 
                 $next.find("h3").text(carouselValues[carouselIndex]);
