@@ -61,7 +61,7 @@ hr {
       width: 90%; } }
   @media (min-width: 800px) {
     .container {
-      width: 65%; } }
+      width: 75%; } }
 
 @media (max-height: 600px) {
   #name {
