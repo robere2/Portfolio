@@ -256,6 +256,9 @@ hr {
         width: auto; }
     #timeline .tl-item.tl-left .tl-img, #timeline .tl-item:nth-child(even):not(.tl-right) .tl-img {
       left: 70%; }
+      @media (max-width: 850px) {
+        #timeline .tl-item.tl-left .tl-img, #timeline .tl-item:nth-child(even):not(.tl-right) .tl-img {
+          left: 93%; } }
     #timeline .tl-item.tl-left:not([data-shown^="true"]), #timeline .tl-item:nth-child(even):not(.tl-right):not([data-shown^="true"]) {
       left: -100%;
       visibility: hidden; }
@@ -264,6 +267,9 @@ hr {
         text-align: right; } }
     #timeline .tl-item.tl-right .tl-img, #timeline .tl-item:nth-child(odd):not(.tl-left) .tl-img {
       left: -70%; }
+      @media (max-width: 850px) {
+        #timeline .tl-item.tl-right .tl-img, #timeline .tl-item:nth-child(odd):not(.tl-left) .tl-img {
+          left: -93%; } }
     #timeline .tl-item.tl-right:not([data-shown^="true"]), #timeline .tl-item:nth-child(odd):not(.tl-left):not([data-shown^="true"]) {
       left: 100%;
       visibility: hidden; }
@@ -274,6 +280,19 @@ hr {
           left: -9px; }
         #timeline .tl-item.tl-right:not([data-shown^="true"]), #timeline .tl-item:nth-child(odd):not(.tl-left):not([data-shown^="true"]) {
           left: 200%; } }
+
+.skill {
+  display: inline-block;
+  margin: 15px;
+  max-width: 200px; }
+  .skill .skill-title {
+    margin: 0 10px 5px; }
+  .skill .skill-data {
+    height: 5px;
+    border-radius: 3px;
+    width: 200px;
+    border: 0 solid #31A56F;
+    background-color: #c4c4c4; }
 
 #skills {
   clear: both;

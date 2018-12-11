@@ -136,6 +136,15 @@ block head
             })
         });
 
+        $("#skills").ready(function() {
+            $(".skill-data").each(function() {
+                let width = $(this).width();
+                let size = $(this).attr("data-value") / 100;
+                $(this).css("border-left-width", size * width)
+                $(this).width(width * (1.0 - size))
+            });
+        });
+
         $(document).ready(function() {
             $("a[data-target=\"" + window.location.hash + "\"]:visible").click()
 
@@ -314,35 +323,76 @@ block content
 
         div#skills
             h2 Skills
-            div#languages.col-2
+            div#languages
                 h3 Languages
-                ul
-                    li Java
-                    li C++
-                    li PHP
-                    li Javascript
-                    li HTML
-                    li CSS
-                    li Sass
-                    li Pug/Jade
-                    li SQL
-                    li Bash
-            div#frameworks.col-2
+                div.skill
+                    h4.skill-title Javascript
+                    div.skill-data(data-value="90")
+                div.skill
+                    h4.skill-title HTML/Pug
+                    div.skill-data(data-value="90")
+                div.skill
+                    h4.skill-title CSS/Sass
+                    div.skill-data(data-value="90")
+                div.skill
+                    h4.skill-title Java
+                    div.skill-data(data-value="80")
+                div.skill
+                    h4.skill-title C++
+                    div.skill-data(data-value="75")
+                div.skill
+                    h4.skill-title Bash
+                    div.skill-data(data-value="75")
+                div.skill
+                    h4.skill-title SQL
+                    div.skill-data(data-value="65")
+                div.skill
+                    h4.skill-title PHP
+                    div.skill-data(data-value="55")
+            div#frameworks
                 h3 Frameworks & Tools
-                ul
-                    li jQuery
-                    li Node.js
-                    li Cloudflare
-                    li Nginx
-                    li Git
-                    li IntelliJ
-                    li Minecraft Forge/Spigot
-                    li Amazon Web Services
-                    li Composer
-                    li Google Analytics
-                    li Google/Firefox Extensions
-                    li Google Drive
-                    li Bootstrap
+                div.skill
+                    h4.skill-title Node.js/Express
+                    div.skill-data(data-value="95")
+                div.skill
+                    h4.skill-title jQuery
+                    div.skill-data(data-value="95")
+                div.skill
+                    h4.skill-title Git/hub
+                    div.skill-data(data-value="90")
+                div.skill
+                    h4.skill-title Jetbrains
+                    div.skill-data(data-value="90")
+                div.skill
+                    h4.skill-title Google Drive
+                    div.skill-data(data-value="90")
+                div.skill
+                    h4.skill-title Cloudflare
+                    div.skill-data(data-value="85")
+                div.skill
+                    h4.skill-title Google Analytics
+                    div.skill-data(data-value="85")
+                div.skill
+                    h4.skill-title NPM
+                    div.skill-data(data-value="80")
+                div.skill
+                    h4.skill-title Bootstrap
+                    div.skill-data(data-value="75")
+                div.skill
+                    h4.skill-title AWS
+                    div.skill-data(data-value="70")
+                div.skill
+                    h4.skill-title Minecraft Forge
+                    div.skill-data(data-value="70")
+                div.skill
+                    h4.skill-title Browser Extensions
+                    div.skill-data(data-value="70")
+                div.skill
+                    h4.skill-title Nginx
+                    div.skill-data(data-value="65")
+                div.skill
+                    h4.skill-title Composer
+                    div.skill-data(data-value="65")
 
         div#contact
             h2 Contact

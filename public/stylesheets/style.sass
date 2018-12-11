@@ -246,6 +246,8 @@ hr
     &.tl-left, &:nth-child(even):not(.tl-right)
       .tl-img
           left: 70%
+          @media(max-width: 850px)
+            left: 93%
       &:not([data-shown^="true"])
         left: -100%
         visibility: hidden
@@ -255,6 +257,8 @@ hr
     &.tl-right, &:nth-child(odd):not(.tl-left)
       .tl-img
         left: -70%
+        @media(max-width: 850px)
+          left: -93%
       &:not([data-shown^="true"])
         left: 100%
         visibility: hidden
@@ -264,6 +268,22 @@ hr
         left: 100%
         &:not([data-shown^="true"])
           left: 200%
+
+.skill
+  $databarSize: 200px
+
+  display: inline-block
+  margin: 15px
+  max-width: $databarSize
+
+  .skill-title
+    margin: 0 10px 5px
+  .skill-data
+    height: 5px
+    border-radius: 3px
+    width: $databarSize
+    border: 0 solid $primaryColor
+    background-color: lighten($grayColor, 10%)
 
 #skills
   clear: both
