@@ -257,14 +257,16 @@ hr {
     #timeline .tl-item.tl-left .tl-img, #timeline .tl-item:nth-child(even):not(.tl-right) .tl-img {
       left: 70%; }
     #timeline .tl-item.tl-left:not([data-shown^="true"]), #timeline .tl-item:nth-child(even):not(.tl-right):not([data-shown^="true"]) {
-      left: -100%; }
+      left: -100%;
+      visibility: hidden; }
     @media (min-width: 635px) {
       #timeline .tl-item.tl-left, #timeline .tl-item:nth-child(even):not(.tl-right) {
         text-align: right; } }
     #timeline .tl-item.tl-right .tl-img, #timeline .tl-item:nth-child(odd):not(.tl-left) .tl-img {
       left: -70%; }
     #timeline .tl-item.tl-right:not([data-shown^="true"]), #timeline .tl-item:nth-child(odd):not(.tl-left):not([data-shown^="true"]) {
-      left: 100%; }
+      left: 100%;
+      visibility: hidden; }
     @media (min-width: 635px) {
       #timeline .tl-item.tl-right, #timeline .tl-item:nth-child(odd):not(.tl-left) {
         left: 100%; }

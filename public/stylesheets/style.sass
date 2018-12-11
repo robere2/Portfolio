@@ -248,6 +248,7 @@ hr
           left: 70%
       &:not([data-shown^="true"])
         left: -100%
+        visibility: hidden
       @media(min-width: $mobileSize)
         text-align: right
 
@@ -256,6 +257,7 @@ hr
         left: -70%
       &:not([data-shown^="true"])
         left: 100%
+        visibility: hidden
       @media(min-width: $mobileSize)
         &:before // Green dot
           left: -9px
