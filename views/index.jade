@@ -10,6 +10,13 @@ block head
                 'badge': "inline"
             });
             $("#email button").click(function () {
+
+                // Set loading text & disable button - Remove it after 10 seconds in case of failure
+                $("#email button").text("Loading...").attr("disabled", "disabled");
+                setTimeout(function() {
+                    $("#email button").text("Show Email").removeAttr("disabled");
+                }, 10000);
+
                 grecaptcha.execute()
             });
         }

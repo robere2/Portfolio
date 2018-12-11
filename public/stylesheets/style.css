@@ -340,9 +340,11 @@ button {
   border-bottom: 3px solid #257e55;
   border-radius: 5px;
   font: 14px "Bitter", serif; }
-  button:active {
+  button:active, button:disabled {
     background-color: #257e55;
     line-height: 0.9em;
     padding-top: 0.9em; }
+  button:disabled {
+    color: #c4c4c4; }
 
 /*# sourceMappingURL=style.css.map */
