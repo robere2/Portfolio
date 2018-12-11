@@ -106,6 +106,25 @@ block head
             })
         })
 
+        $("timeline").ready(function() {
+            let scrollDistance = 5; // Measures distance since last scroll distance checks for timeline
+                                    // This helps avoiding calling the callback every time the user scrolls
+                                    // causing the browser to lag
+            $(document).scroll(function(e) {
+                let criticalPoint = $(e.target).scrollTop() + ($(window).height() * 0.8);
+
+                // If timeline is on screen & the user has scrolled a significant distance since last call
+                if($("#timeline").offset().top <= criticalPoint && scrollDistance++ > 5) {
+                    scrollDistance = 0;
+                    $(".timeline .tl-item").each(function(key, val) {
+                        if(!$(val).attr("data-shown") && $(val).offset().top <= criticalPoint) {
+                            $(val).attr("data-shown", "true");
+                        }
+                    });
+                }
+            })
+        });
+
         $(document).ready(function() {
             $("a[data-target=\"" + window.location.hash + "\"]:visible").click()
 
@@ -153,7 +172,7 @@ block content
                 a.tab.tab-active(data-target="#minecraft-modding") Minecraft Modding
                 a.tab(data-target="#karaoke") Karaoke Panel
                 a.tab(data-target="#watchdogger") Watchdogger
-                //a.tab(data-target="#image-sharing") Image Sharing
+                //-a.tab(data-target="#image-sharing") Image Sharing
                 hr
 
             div#minecraft-modding.tab-content.content-active
@@ -219,53 +238,100 @@ block content
             //
             //        p
             //            a(href="https://bugg.co/i/") Click here to visit it.
-        div#about
-            h2 About
-            p
-                | I was born and raised in Virginia. At the age of 12, I built my first desktop computer with my father.
-                | My skills and interests expanded further. I always wanted to make cool things on the computer, but
-                | never knew how. That's when, in 2013, I taught myself HTML and CSS.
+        div#timeline
+            h2 About Me
+            div.timeline
+                div#tl-line
+                div.tl-item
+                    div.tl-item-content
+                        h3.tl-title Birthday
+                        h4.subtext September 10th, 1999
+                        //- - let an = [8,11,18,80,81,82,83,84,85,86,87,88,89].includes(age) ? "an" : "a"
+                        p I was born in 1999 in Virginia as an only child. Throughout my childhood I was a very shy person
+                            | and usually kept to myself. I found it easier to interact with others over the internet.
+                            | Dealing with them so much, computers began enthrall me. I am currently #{age} years old.
+                div.tl-item
+                    div.tl-item-content
+                        h3.tl-title First Computer
+                        h4.subtext ca. 2012
+                        p In 2012, I worked with my dad to build my first desktop computer from the ground up. This
+                            | experience considerably expanded my interests in computers. It was like a (very expensive)
+                            | LEGO kit! I consider this to be the main event that sparked my interests in the computer
+                            | science and computer engineering fields.
+                div.tl-item
+                    div.tl-item-content
+                        div.tl-img
+                            img(src="images/php.png")
+                        h3.tl-title First Programming Language
+                        h4.subtext ca. 2014
+                        p I started to learn programming at the early age of 13. Websites were fascinating to me and
+                            | I wanted to make my own, so I set out to learn HTML. It didn't take long to get it under
+                            | my belt, and not long after, I started learning my first programming language, PHP.
+                            | Up until university, I was a fully self-taught programmer.
+                div.tl-item
+                    div.tl-item-content
+                        h3.tl-title Hypixel Volunteer
+                        h4.subtext June 2014 - Present
+                        p I started volunteering for the Hypixel Minecraft Network in 2014 as a "JR Helper". Since then
+                            | I've climbed the ladder up to the highest volunteer position available, which I've held
+                            | for over four years.
+                            a(href="https://hypixel.net/volunteer") Click here for more information.
+                div.tl-item
+                    div.tl-item-content
+                        h3.tl-title Highschool Graduation
+                        h4.subtext June 2017
+                        p I graduated highschool in June of 2017. Despite the challenges along the way, I became the
+                            | first student of my highschool to graduate with an advanced diploma.
+                div.tl-item
+                    div.tl-item-content
+                        div.tl-img
+                            img(src="images/nova.png")
+                        h3.tl-title Northern Virginia Community College
+                        h4.subtext August 2017 - May 2018
+                        p As an intermediary between graduating highschool and attending a four year university, I decided
+                            | to take a year off and take classes at my local community college. This proved beneficial
+                            | for me as it allowed me to adjust to the academic environment of college before moving away.
+                div.tl-item
+                    div.tl-item-content
+                        div.tl-img
+                            img(src="images/rpi.png")
+                        h3.tl-title Rensselaer Polytechnic Institute
+                        h4.subtext August 2018 - Present
+                        p I started attending Rensselaer Polytechnic Institute in the 2018 Fall semester, located in
+                            | Troy, NY. I am currently studying Computer Science and plan on minoring in Philosophy.
 
-            p
-                | I continued to work on my skills and I am now fluent in PHP, Java, Javascript/JQuery/Node.js,
-                | and HTML/CSS. Currently I plan on studying Computer Science at Rensselear Polytechnic Institute
-                | in the Fall of 2018.
+        div#skills
+            h2 Skills
+            div#languages.col-2
+                h3 Languages
+                ul
+                    li Java
+                    li C++
+                    li PHP
+                    li Javascript
+                    li HTML
+                    li CSS
+                    li Sass
+                    li Pug/Jade
+                    li SQL
+                    li Bash
+            div#frameworks.col-2
+                h3 Frameworks & Tools
+                ul
+                    li jQuery
+                    li Node.js
+                    li Cloudflare
+                    li Nginx
+                    li Git
+                    li IntelliJ
+                    li Minecraft Forge/Spigot
+                    li Amazon Web Services
+                    li Composer
+                    li Google Analytics
+                    li Google/Firefox Extensions
+                    li Google Drive
+                    li Bootstrap
 
-            p
-                | In addition to this, I have also been a Moderator on The Hypixel Network, the world's largest
-                | Minecraft server, for 3+ years. You may find my profile there by&nbsp
-                a(href="https://hypixel.net/members/52450/") clicking here
-                |.
-            div#skills
-                div#languages.col-2
-                    h3 Languages
-                    ul
-                        li Java
-                        li C++
-                        li PHP
-                        li Javascript
-                        li HTML
-                        li CSS
-                        li Sass
-                        li Pug/Jade
-                        li SQL
-                        li Bash
-                div#frameworks.col-2
-                    h3 Frameworks & Tools
-                    ul
-                        li jQuery
-                        li Node.js
-                        li Cloudflare
-                        li Nginx
-                        li Git
-                        li IntelliJ
-                        li Minecraft Forge/Spigot
-                        li Amazon Web Services
-                        li Composer
-                        li Google Analytics
-                        li Google/Firefox Extensions
-                        li Google Drive
-                        li Bootstrap
         div#contact
             h2 Contact
             div#content

@@ -204,18 +204,87 @@ hr
   @media (min-height: 1600px)
     font-size: 6em !important
 
-#about
+#timeline
   clear: both
-  min-height: 200px
-  #skills
-    .col-2
-      padding: 0 20px
-      width: 100%
-      float: left
-      border-left: 2px solid #aaaaaa
-      @media (min-width: 550px)
-        width: calc(50% - 22px * 2)
-        min-height: 320px
+
+  .timeline
+    border-left: 3px solid #aaa
+    padding-bottom: 20px
+    @media(min-width: 635px)
+      width: 50%
+      border-right: 3px solid #aaa
+      border-left: none
+
+  .tl-item
+    transition: opacity 0.5s ease-in-out, left 0.5s ease-in-out
+
+    // Green dot
+    &:before
+      border-radius: 25px
+      background-color: $defaultColor
+      width: 20px
+      height: 20px
+      display: inline-block
+      content: "."
+      color: $defaultColor
+      position: relative
+      left: 11px
+      top: 55px
+      @media(max-width: 635px)
+        left: -11px
+
+    position: relative
+    left: 0
+    &:not([data-shown^="true"])
+      opacity: 0
+    .tl-item-content
+      padding: 0 25px
+    .tl-title
+      margin-bottom: 5px
+
+    .tl-img
+      height: 0
+      overflow: visible
+      position: relative
+      @media(max-width: 635px)
+        display: none
+      img
+        top: 30px
+        position: relative
+        height: 150px
+        width: auto
+
+    &.tl-left, &:nth-child(even):not(.tl-right)
+      .tl-img
+          left: 70%
+      &:not([data-shown^="true"])
+        left: -100%
+      @media(min-width: 635px)
+        text-align: right
+
+    &.tl-right, &:nth-child(odd):not(.tl-left)
+      .tl-img
+        left: -70%
+      &:not([data-shown^="true"])
+        left: 100%
+      @media(min-width: 635px)
+        &:before // Green dot
+          left: -9px
+        left: 100%
+        &:not([data-shown^="true"])
+          left: 200%
+
+#skills
+  clear: both
+  margin-top: 50px
+  .col-2
+    padding: 0 20px
+    width: 100%
+    float: left
+    border-left: 2px solid #aaaaaa
+    @media (min-width: 550px)
+      width: calc(50% - 22px * 2)
+      min-height: 320px
 
 #contact
   padding-top: 10px
