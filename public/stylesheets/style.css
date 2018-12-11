@@ -150,7 +150,7 @@ hr {
 
 #tabs {
   width: 100%; }
-  #tabs .tab, #tabs .tab:active, #tabs .tab:focus, #tabs .tab-active {
+  #tabs .tab {
     background: none;
     border: none;
     display: inline-block;
@@ -163,13 +163,13 @@ hr {
     color: #999999;
     transition: color 0.2s, border-color 0.2s; }
     @media (max-width: 635px) {
-      #tabs .tab, #tabs .tab:active, #tabs .tab:focus, #tabs .tab-active {
+      #tabs .tab {
         visibility: hidden;
         display: none; } }
-  #tabs .tab:active, #tabs .tab-active:active, #tabs .tab:focus, #tabs .tab-active:focus, #tabs .tab-active {
-    border-color: #31A56F;
-    color: #31A56F;
-    transition: all 0.2s; }
+    #tabs .tab:active, #tabs .tab:focus, #tabs .tab.tab-active {
+      border-color: #31A56F;
+      color: #31A56F;
+      transition: all 0.2s; }
   #tabs hr {
     position: relative;
     top: -9px;
