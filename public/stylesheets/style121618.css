@@ -7,14 +7,14 @@ body {
   overflow-x: hidden; }
 
 a {
-  color: #31A56F;
+  color: #445443;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
   -o-transition: color 0.2s;
   transition: color 0.2s; }
   a:hover {
-    color: #69d3a2;
+    color: #728d70;
     -webkit-transition: color 0.2s;
     -moz-transition: color 0.2s;
     -ms-transition: color 0.2s;
@@ -68,12 +68,12 @@ hr {
     margin-bottom: 5px; } }
 
 #intro {
-  background-image: radial-gradient(circle at center, #31A56F 0%, #257e55 100%);
+  background-image: radial-gradient(circle at center, #445443 0%, #2d382c 100%);
   width: 100vw;
   height: 100vh;
   color: #ffffff;
   box-shadow: #AAAAAA 0 7px 15px;
-  text-shadow: #257e55 7px 7px 15px;
+  text-shadow: #2d382c 7px 7px 15px;
   text-align: center; }
   #intro a {
     color: #ffffff;
@@ -83,7 +83,7 @@ hr {
     -o-transition: color 0.2s;
     transition: color 0.2s; }
     #intro a:hover {
-      color: #69d3a2;
+      color: #728d70;
       -webkit-transition: color 0.2s;
       -moz-transition: color 0.2s;
       -ms-transition: color 0.2s;
@@ -91,7 +91,7 @@ hr {
       transition: color 0.2s; }
   #intro #me {
     width: 200px;
-    box-shadow: #257e55 7px 7px 15px;
+    box-shadow: #2d382c 7px 7px 15px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -167,8 +167,8 @@ hr {
         visibility: hidden;
         display: none; } }
     #tabs .tab:active, #tabs .tab:focus, #tabs .tab.tab-active {
-      border-color: #31A56F;
-      color: #31A56F;
+      border-color: #445443;
+      color: #445443;
       transition: all 0.2s; }
   #tabs hr {
     position: relative;
@@ -224,12 +224,12 @@ hr {
     left: 0; }
     #timeline .tl-item:before {
       border-radius: 25px;
-      background-color: #31A56F;
+      background-color: #445443;
       width: 20px;
       height: 20px;
       display: inline-block;
       content: ".";
-      color: #31A56F;
+      color: #445443;
       position: relative;
       left: 11px;
       top: 55px; }
@@ -291,7 +291,7 @@ hr {
     height: 5px;
     border-radius: 3px;
     width: 200px;
-    border: 0 solid #31A56F;
+    border: 0 solid #445443;
     background-color: #c4c4c4; }
 
 #skills {
@@ -353,19 +353,19 @@ hr {
   margin-bottom: 20px; }
 
 button {
-  background-color: #31A56F;
+  background-color: #445443;
   padding: 7px 10px;
   color: white;
   font-weight: bold;
   border: none;
-  border-bottom: 3px solid #257e55;
+  border-bottom: 3px solid #2d382c;
   border-radius: 5px;
   font: 14px "Bitter", serif; }
   button:active, button:disabled {
-    background-color: #257e55;
+    background-color: #2d382c;
     line-height: 0.9em;
     padding-top: 0.9em; }
   button:disabled {
     color: #c4c4c4; }
 
-/*# sourceMappingURL=style121118.css.map */
+/*# sourceMappingURL=style121618.css.map */
