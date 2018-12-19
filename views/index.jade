@@ -58,14 +58,6 @@ block head
         ]
         let carouselIndex = 0;
 
-        $("head").ready(function() {
-            $("<link>")
-                .attr("rel", "stylesheet")
-                .attr("type", "text/css")
-                .attr("href", "https://fonts.googleapis.com/css?family=Bitter")
-                .appendTo($("head"));
-        })
-
         // Load image post-HTML parse for faster render speeds
         $("#me").ready(function() {
             $("#me").attr("src", "images/me.webp");
@@ -154,18 +146,7 @@ block head
         });
 
         $(document).ready(function() {
-            $("a[data-target=\"" + window.location.hash + "\"]:visible").click()
-
-            $("a").click(function(event) {
-                if(this.hash !== "") {
-                    event.preventDefault();
-
-                    $("html, body").animate({
-                        scrollTop: $(this.hash).offset().top,
-                        duration: 500
-                    });
-                }
-            });
+            $("a[data-target=\"" + window.location.hash + "\"]:visible").click();
         });
 
 
@@ -424,6 +405,9 @@ block content
         div#recaptcha.g-recaptcha
         div#footer
             p#copyright Copyright © Erik Roberts 2018
-            p#source
-              a(href="https://github.com/bugfroggy/Portfolio") Source
+            div#links
+                p#source
+                  a(href="https://github.com/bugfroggy/Portfolio") Source
+                p#privacy-link
+                    a(href="/privacy") Privacy
             hr

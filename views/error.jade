@@ -1,6 +1,19 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  div.container
+    div#error-block
+      h1#error-title= message
+      h3.subtext= error.status
+      if typeof(error.stack) != "undefined"
+        h4 Here's what went wrong:
+        pre.stack #{error.stack}
+
+    div#footer
+      p#copyright Copyright © Erik Roberts 2018
+      div#links
+        p#source
+          a(href="https://github.com/bugfroggy/Portfolio") Source
+        p#privacy-link
+          a(href="/privacy") Privacy
+      hr

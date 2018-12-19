@@ -335,14 +335,18 @@ hr {
     position: relative;
     z-index: 100;
     background-color: #ffffff; }
-  #footer #source {
+  #footer #links {
     float: right;
-    margin-right: 5%;
+    margin: 0 5% 0 0;
     padding: 5px;
     display: inline-block;
     position: relative;
     z-index: 100;
     background-color: #ffffff; }
+    #footer #links p {
+      display: inline-block; }
+      #footer #links p#privacy-link {
+        margin-left: 15px; }
 
 #recaptcha {
   margin-top: 50px; }
@@ -367,5 +371,31 @@ button {
     padding-top: 0.9em; }
   button:disabled {
     color: #c4c4c4; }
+
+#privacy {
+  margin-top: 30px; }
+
+#error-block {
+  margin-top: 25px;
+  padding: 25px;
+  background-color: white;
+  text-align: center; }
+  #error-block h1 {
+    margin-top: 25px; }
+  #error-block .stack {
+    text-align: left;
+    margin: auto; }
+    @media (max-width: 635px) {
+      #error-block .stack {
+        width: calc(100% - 25px); } }
+
+#error-title {
+  margin-bottom: 0; }
+
+.stack {
+  background-color: #d0d0d0;
+  width: 60%;
+  padding: 7px;
+  overflow-x: scroll; }
 
 /*# sourceMappingURL=style121618.css.map */

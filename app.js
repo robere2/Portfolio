@@ -7,6 +7,7 @@ const sassMiddleware = require('node-sass-middleware');
 
 let index = require('./routes/index');
 let captcha = require('./routes/captcha');
+let privacy = require('./routes/privacy');
 
 let app = express();
 
@@ -30,6 +31,12 @@ app.use(express.static(path.join(__dirname, 'public'), {maxAge: 7 * 24 * 60 * 60
 // Defining our pages
 app.use('/', index);
 app.use('/', captcha);
+app.use('/', privacy);
+
+app.all('*', function(req, res, next) {
+  res.status(404);
+  res.render('error', {message: "Page not found", error: {status: "Looks like you took a wrong turn..."}});
+});
 
 module.exports = app;
 
