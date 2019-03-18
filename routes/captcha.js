@@ -40,7 +40,6 @@ router.get('/captcha', function(req, res, next) {
         }
 
         res.json(resJson);
-        next();
     });
 });
 

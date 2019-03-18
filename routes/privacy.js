@@ -5,7 +5,6 @@ let router = express.Router();
 router.get('/privacy', function(req, res, next) {
 
   res.render('privacy', { title: 'Erik Roberts | Privacy Policy'});
-  next();
 });
 
 module.exports = router;

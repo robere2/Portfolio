@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
   let msPerYear = 31536000000;
 
   res.render('index', { title: 'Erik Roberts | Portfolio', age: Math.floor(age / msPerYear)});
-  next();
 });
 
 module.exports = router;
