@@ -8,7 +8,6 @@ const app = require('../app');
 const debug = require('debug')('portfolio:server');
 const https = require('https');
 const http = require('http');
-const fs = require('fs');
 const aws_s3 = require('../modules/aws-s3');
 
 aws_s3.getCertificate(process.env.AWS_PRIVATE_BUCKET,
