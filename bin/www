@@ -16,17 +16,16 @@ aws_s3.getCertificate(process.env.AWS_PRIVATE_BUCKET,
 
 
         let server;
+        /**
+         * Get port from environment and store in Express.
+         */
+        let port = normalizePort(process.env.PORT || '43333');
+        app.set('port', port);
+
 
         try {
 
             if(err) throw err;
-
-            /**
-             * Get port from environment and store in Express.
-             */
-
-            let port = normalizePort(process.env.PORT || '43333');
-            app.set('port', port);
 
             /**
              * Create HTTPS server.
