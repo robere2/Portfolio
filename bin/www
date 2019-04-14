@@ -14,26 +14,24 @@ aws_s3.getCertificate(process.env.AWS_PRIVATE_BUCKET,
     process.env.AWS_PRIVATE_PREFIX + "cert.pem",
     process.env.AWS_PRIVATE_PREFIX + "private-key.pem", (err, cert, privateKey) => {
 
-        if(err) throw err;
 
-        /**
-         * Get port from environment and store in Express.
-         */
-
-        let port = normalizePort(process.env.PORT || '43333');
-        app.set('port', port);
-
-        /**
-         * Create HTTPS server.
-         */
         let server;
-        let credentials = {};
+
         try {
 
-            credentials.cert = cert;
-            credentials.key = privateKey;
+            if(err) throw err;
 
-            server = https.createServer(credentials, app);
+            /**
+             * Get port from environment and store in Express.
+             */
+
+            let port = normalizePort(process.env.PORT || '43333');
+            app.set('port', port);
+
+            /**
+             * Create HTTPS server.
+             */
+            server = https.createServer({cert: cert, key: privateKey}, app);
         } catch (e) {
             console.log("Caught exception: " + e.stack);
             console.log("Creating HTTP server without SSL");
