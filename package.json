@@ -6,15 +6,15 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
     "aws-sdk": "^2.382.0",
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "^4.16.3",
-    "jade": "~1.11.0",
     "morgan": "^1.9.1",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.14.1",
     "node-sass-middleware": "latest",
+    "pug": "^2.0.4",
     "request": "latest"
   }
 }

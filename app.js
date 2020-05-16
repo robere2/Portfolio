@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
@@ -13,7 +12,7 @@ let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // Uncomment for debug
 // app.use(logger('dev'));
@@ -33,7 +32,7 @@ app.use('/', index);
 app.use('/', captcha);
 app.use('/', privacy);
 
-app.all('*', function(req, res, next) {
+app.all('*', function(req, res) {
   res.status(404);
   res.render('error', {message: "Page not found", error: {status: "Looks like you took a wrong turn..."}});
 });
