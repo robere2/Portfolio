@@ -7,6 +7,7 @@ const sassMiddleware = require('node-sass-middleware');
 let index = require('./routes/index');
 let captcha = require('./routes/captcha');
 let privacy = require('./routes/privacy');
+let watchdogger = require('./routes/watchdogger');
 
 let app = express();
 
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public'), {maxAge: 7 * 24 * 60 * 60
 app.use('/', index);
 app.use('/', captcha);
 app.use('/', privacy);
+app.use('/', watchdogger);
 
 app.all('*', function(req, res) {
   res.status(404);
