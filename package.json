@@ -14,7 +14,7 @@
     "morgan": "^1.9.1",
     "node-sass": "^4.14.1",
     "node-sass-middleware": "latest",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "request": "latest"
   }
 }
