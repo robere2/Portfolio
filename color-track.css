@@ -1,0 +1,52 @@
+color-track {
+    position: relative;
+    display: flex;
+    animation-name: travel;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.color-track-path-and-ball {
+    transform: translateX(-200vw);
+    flex: 0 0 100vw;
+    height: 45px;
+    width: 100vw;
+    display: flex;
+}
+.color-track-path {
+    position: absolute;
+    align-self: center;
+    width: calc(100vw - 100px);
+    height: 15px;
+    right: 0;
+}
+.color-track-ball {
+    position: absolute;
+    align-self: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    right: -20px;
+}
+
+@media (max-width: 600px) {
+    .color-track-path-and-ball {
+        height: 40px;
+    }
+    .color-track-ball {
+        height: 30px;
+        width: 30px;
+    }
+    .color-track-path {
+        height: 10px;
+    }
+}
+
+
+@keyframes travel {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100vw;
+    }
+}

@@ -1,8 +1,89 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Merriweather&display=swap');
+body {
+  margin: 0;
+  color: black;
+}
+h1,h2,h3,h4,h5,h6,.koulen {
+  font-family: 'Koulen', cursive;
+}
+p,.merriweather {
+  font-family: 'Merriweather', serif;
+}
+a {
+  color: inherit;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #bd448d;
+}
+
+.header {
+  width: 100%;
+}
+.header > div {
+  overflow: hidden
+}
+.content {
+  padding: 0 5%;
+}
+.title {
+  margin: 0;
+  font-size: 140px;
+  line-height: 100%;
+}
+
+.subtitle-row {
+  font-size: 50px;
+  color: #444444;
+}
+.subtitle {
+  margin: 0;
+  font-size: 50px;
+  line-height: 100%;
+  display: inline;
+}
+.row {
+  display: flex;
+}
+.headshot {
+  width: 300px;
+  border-radius: 300px;
+}
+@media (max-width: 800px) {
+  .title {
+    font-size: 100px;
+  }
+  .subtitle {
+    font-size: 45px;
+  }
+  .headshot {
+    width: 200px;
+  }
+}
+@media (max-width: 600px) {
+  .title {
+    font-size: 70px;
+  }
+  .subtitle {
+    font-size: 35px;
+  }
+  .headshot {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 50px;
+  }
+  .subtitle {
+    font-size: 25px;
+  }
+
+  .middot {
+    display: none;
+  }
+  .github {
+    font-size: 0.5em;
+  }
 }
