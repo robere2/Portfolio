@@ -5,6 +5,11 @@ color-track {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
+@media (prefers-reduced-motion: reduce) {
+    color-track {
+        animation-play-state: paused;
+    }
+}
 .color-track-path-and-ball {
     transform: translateX(-200vw);
     flex: 0 0 100vw;

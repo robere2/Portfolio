@@ -1,9 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Koulen&family=Merriweather&display=swap');
+
+:root {
+  --primary: #bd448d;
+  --secondary: #3f3f3f;
+  --title-color: #000000;
+  --paragraph-color: #1a1616;
+  --background-color: #faf9f9;
+}
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+  :root {
+    --secondary: #c2bcbc;
+    --title-color: #fff3f3;
+    --paragraph-color: #fff9f9;
+    --background-color: #262424;
+  }
+  a:hover {
+    filter: saturate(20%) brightness(200%);
+  }
+}
+
+/* https://youtrack.jetbrains.com/issue/WEB-55382/Incorrect-CSS-inspection-for-media-query-prefers-contrast */
+/* High contrast */
+/*noinspection CssInvalidMediaFeature*/
+@media(prefers-contrast: more) {
+  :root {
+    --secondary: #000000;
+    --title-color: #000000;
+    --paragraph-color: #000000;
+    --background-color: #ffffff;
+  }
+}
+/* High contrast */
+/*noinspection CssInvalidMediaFeature*/
+@media(prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --secondary: #ffffff;
+    --title-color: #ffffff;
+    --paragraph-color: #ffffff;
+    --background-color: #000000;
+  }
+}
+
+/* ----------------- */
+
 body {
   margin: 0;
-  color: black;
+  color: var(--paragraph-color);
+  background-color: var(--background-color);
 }
-h1,h2,h3,h4,h5,h6,.koulen {
+h1,h2,h3,h4,h5,h6,.koulen, .tabs button {
   font-family: 'Koulen', cursive;
 }
 p,.merriweather {
@@ -11,11 +58,17 @@ p,.merriweather {
 }
 a {
   color: inherit;
-  transition: color 0.3s;
+  transition: color 0.3s, filter 0.3s;
 }
 a:hover {
-  color: #bd448d;
+  color: var(--primary);
 }
+hr {
+  border-color: var(--primary);
+  filter: brightness(80%);
+}
+
+/* ----------------- */
 
 .header {
   width: 100%;
@@ -25,16 +78,26 @@ a:hover {
 }
 .content {
   padding: 0 5%;
+  max-width: 1200px;
+  margin-left:auto;
+  margin-right:auto;
 }
+.row {
+  display: flex;
+}
+
+/* ----------------- */
+
 .title {
   margin: 0;
   font-size: 140px;
   line-height: 100%;
+  color: var(--title-color);
 }
 
 .subtitle-row {
   font-size: 50px;
-  color: #444444;
+  color: var(--secondary);
 }
 .subtitle {
   margin: 0;
@@ -42,36 +105,79 @@ a:hover {
   line-height: 100%;
   display: inline;
 }
-.row {
-  display: flex;
-}
 .headshot {
   width: 300px;
   border-radius: 300px;
+  filter: drop-shadow(2px 4px 4px #00000050);
 }
-@media (max-width: 800px) {
+
+/* ----------------- */
+
+.tabs button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  margin: 5px;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: color 0.3s, filter 0.3s, transform 0.3s;
+}
+.tabs button[active="true"] {
+  color: var(--primary);
+  filter: brightness(130%);
+}
+.tabs button:hover {
+  transform: translateY(-0.25em);
+}
+
+/* ----------------- */
+
+/* Shrink headshot on smaller computers/larger tablets */
+@media (min-width:801px) and (max-width: 900px) {
+  .headshot {
+    width: 250px;
+  }
+}
+/* Shrink headshot, title, and subtitle on larger tablets */
+@media (min-width:701px) and (max-width: 800px) {
   .title {
     font-size: 100px;
   }
   .subtitle {
-    font-size: 45px;
+    font-size: 40px;
   }
   .headshot {
-    width: 200px;
+    width: 225px
   }
 }
-@media (max-width: 600px) {
-  .title {
-    font-size: 70px;
-  }
-  .subtitle {
-    font-size: 35px;
-  }
+/* Hide headshot on medium tablets and below */
+@media (max-width: 700px) {
   .headshot {
     display: none;
   }
 }
 
+/* Shrink subtitle and GitHub link on smaller tablets */
+@media (min-width:601px) and (max-width: 700px) {
+  .subtitle {
+    font-size: 35px;
+  }
+  .github {
+    font-size: 0.75em;
+  }
+}
+
+/* Shrink title and subtitle on small tablets/large phones */
+@media (min-width:401px) and (max-width: 600px) {
+  .title {
+    font-size: 70px;
+  }
+  .subtitle {
+    font-size: 30px;
+  }
+}
+
+/* Shrink title, subtitle, and github on phones */
 @media (max-width: 400px) {
   .title {
     font-size: 50px;
@@ -79,11 +185,15 @@ a:hover {
   .subtitle {
     font-size: 25px;
   }
-
   .middot {
     display: none;
   }
   .github {
     font-size: 0.5em;
   }
+  .tabs button {
+    display: block;
+    width: 100%;
+  }
 }
+
