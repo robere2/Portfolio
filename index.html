@@ -4,87 +4,27 @@
     <meta charset="UTF-8"/>
     <meta name='description' content='Software development portfolio for Erik. He is a full stack developer.'>
     <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script src="https://kit.fontawesome.com/6fa073f3b2.js" defer crossorigin="anonymous"></script>
     <title>Erik Roberts</title>
 </head>
 <body>
 <div id="app">
-    <div class="header">
-        <div>
-            <color-track color="hsl(324, 77%, 55%)" duration="8s" style="transform: translateX(30%)"></color-track>
-            <color-track color="hsl(1, 77%, 55%)" duration="7.5s" style="transform: translateX(10%)"></color-track>
-            <color-track color="hsl(27, 77%, 55%)" duration="8.2s" style="transform: translateX(60%)"></color-track>
-            <color-track color="hsl(48, 77%, 55%)" duration="8.5s" style="transform: translateX(45%)"></color-track>
-        </div>
-    </div>
+    <color-track-header></color-track-header>
     <div class="content">
-        <div class="row">
-            <div class="intro">
-                <h1 class="title">Erik Roberts</h1>
-                <div class="subtitle-row">
-                    <h2 class="subtitle">Full Stack Developer</h2>
-                    <span class="middot">&middot;</span>
-                    <a href="https://github.com/robere2" class="github">
-                        <i class="fab fa-github" aria-label="GitHub"></i>
-                    </a>
-                </div>
-                <p>
-                    Hi, my name is Erik. I'm a software engineer with a particular love for JavaScript and the web.
-                    I'm a Computer Science graduate from the Class of 2022 at Rensselaer Polytechnic Institute.
-                </p>
-            </div>
-            <div>
-                <img class="headshot" alt="A picture of me." src="assets/headshot.webp">
-            </div>
-        </div>
+        <self-intro></self-intro>
         <div class="tabs">
-            <button type="button" data-target="about" data-active="true">About Me</button>
-            <button type="button" data-target="projects">My Projects</button>
-            <button type="button" data-target="contact">Contact Me</button>
+            <a href="#projects"><button type="button">Projects</button></a>
+            <a href="#about"><button type="button">About Me</button></a>
+            <a href="#contact"><button type="button">Contact Me</button></a>
         </div>
         <hr>
-        <div id="tab-contents">
-            <div class="tab-content about">
-                <div class="row">
-                    <p>
-                        TODO
-                    </p>
-                </div>
-            </div>
-            <div class="tab-content projects" aria-hidden="true">
-                <div class="row">
-                    <p>
-                        TODO
-                    </p>
-                </div>
-            </div>
-            <div class="tab-content contact" aria-hidden="true">
-                <div class="row">
-                    <div class="card">
-                        <form>
-                            <div class="row">
-                                <div class="name-wrapper">
-                                    <label for="contact-name">Your Name</label>
-                                    <input type="text" id="contact-name">
-                                </div>
-                                <div class="email-wrapper">
-                                    <label for="contact-email">Your Email</label>
-                                    <input type="email" id="contact-email">
-                                </div>
-                            </div>
-                            <label for="contact-subject">Subject</label>
-                            <input type="text" id="contact-subject">
-                            <label for="contact-body">Body</label>
-                            <textarea id="contact-body"></textarea>
-                        </form>
-                        <button id="contact-submit" type="submit">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <my-projects id="projects"></my-projects>
+        <about-me id="about"></about-me>
+        <contact-me id="contact"></contact-me>
     </div>
-
+    <my-footer></my-footer>
 </div>
 <script type="module" src="/main.js"></script>
 </body>

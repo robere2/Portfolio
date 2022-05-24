@@ -1,11 +1,14 @@
-import "./color-track.css";
-import { Color } from "./Color";
+import "./ColorTrack.css";
+import { Color } from "../../Color";
 
 class ColorTrack extends HTMLElement {
 
 	constructor() {
 		super();
-		this.style.animationDuration = this.getAttribute("duration") ?? "2s"
+	}
+
+	connectedCallback() {
+		this.setDuration(this.getAttribute("duration"))
 		this.setColor(this.getAttribute("color"));
 	}
 
@@ -28,6 +31,10 @@ class ColorTrack extends HTMLElement {
 			<div class="color-track-ball" style="background-color: ${colorStr}"></div>
 		</div>
 		`;
+	}
+
+	setDuration(seconds) {
+		this.style.animationDuration = seconds + 's'
 	}
 }
 
