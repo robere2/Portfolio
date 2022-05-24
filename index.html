@@ -20,7 +20,7 @@
     </div>
     <div class="content">
         <div class="row">
-            <div class="col intro">
+            <div class="intro">
                 <h1 class="title">Erik Roberts</h1>
                 <div class="subtitle-row">
                     <h2 class="subtitle">Full Stack Developer</h2>
@@ -34,7 +34,7 @@
                     I'm a Computer Science graduate from the Class of 2022 at Rensselaer Polytechnic Institute.
                 </p>
             </div>
-            <div class="col">
+            <div>
                 <img class="headshot" alt="A picture of me." src="assets/headshot.webp">
             </div>
         </div>
@@ -44,21 +44,42 @@
             <button type="button" data-target="contact">Contact Me</button>
         </div>
         <hr>
-        <div class="tab-content about">
-            <div class="row">
-                <div class="col">
+        <div id="tab-contents">
+            <div class="tab-content about">
+                <div class="row">
                     <p>
                         TODO
                     </p>
                 </div>
             </div>
-        </div>
-        <div class="tab-content projects" aria-hidden="true">
-            <div class="row">
-                <div class="col">
+            <div class="tab-content projects" aria-hidden="true">
+                <div class="row">
                     <p>
                         TODO
                     </p>
+                </div>
+            </div>
+            <div class="tab-content contact" aria-hidden="true">
+                <div class="row">
+                    <div class="card">
+                        <form>
+                            <div class="row">
+                                <div class="name-wrapper">
+                                    <label for="contact-name">Your Name</label>
+                                    <input type="text" id="contact-name">
+                                </div>
+                                <div class="email-wrapper">
+                                    <label for="contact-email">Your Email</label>
+                                    <input type="email" id="contact-email">
+                                </div>
+                            </div>
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject">
+                            <label for="contact-body">Body</label>
+                            <textarea id="contact-body"></textarea>
+                        </form>
+                        <button id="contact-submit" type="submit">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
