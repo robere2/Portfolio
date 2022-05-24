@@ -4,19 +4,41 @@ import { Color } from "./Color";
 
 window.customElements.define("color-track", ColorTrack);
 
-const buttons = document.querySelectorAll(".tabs button");
+const tabs = document.querySelectorAll(".tabs button");
+const tabContent = document.querySelectorAll(".tab-content");
 const colorTracks = document.querySelectorAll("color-track");
 
-function tabClicked(e) {
-	for(const button of buttons) {
-		button.removeAttribute("active");
+function tabClicked(button) {
+	// Reset tabs/visible content
+	for(const tab of tabs) {
+		tab.removeAttribute("data-active");
 	}
-	e.target.setAttribute("active", true);
+	for(const content of tabContent) {
+		content.setAttribute("aria-hidden", "true");
+	}
+
+	const target = button.getAttribute("data-target");
+	window.location.hash = '#' + target;
+
+	button.setAttribute("data-active", true);
+	const contentToShow = document.querySelector(".tab-content." + target)
+	if(contentToShow) {
+		contentToShow.setAttribute("aria-hidden", "false");
+	}
 }
 
-buttons.forEach((elem) => {
-	elem.addEventListener("click", tabClicked);
+tabs.forEach((elem) => {
+	elem.addEventListener("click", (e) => tabClicked(e.target));
 });
+
+// Switch tabs if the hash is set
+if(window.location.hash) {
+	let hashContent = window.location.hash.substring(1);
+	const button = document.querySelector(`.tabs button[data-target="${hashContent}"]`)
+	if(button) {
+		tabClicked(button);
+	}
+}
 
 // Konami Code easter egg
 let colors = [

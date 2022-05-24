@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
+    <meta name='description' content='Software development portfolio for Erik. He is a full stack developer.'>
     <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script src="https://kit.fontawesome.com/6fa073f3b2.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6fa073f3b2.js" defer crossorigin="anonymous"></script>
     <title>Erik Roberts</title>
 </head>
 <body>
@@ -38,9 +39,9 @@
             </div>
         </div>
         <div class="tabs">
-            <button type="button" key="about" active="true">About Me</button>
-            <button type="button" key="projects">My Projects</button>
-            <button type="button" key="contact">Contact Me</button>
+            <button type="button" data-target="about" data-active="true">About Me</button>
+            <button type="button" data-target="projects">My Projects</button>
+            <button type="button" data-target="contact">Contact Me</button>
         </div>
         <hr>
         <div class="tab-content about">
@@ -52,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="tab-content projects">
+        <div class="tab-content projects" aria-hidden="true">
             <div class="row">
                 <div class="col">
                     <p>
