@@ -1,0 +1,15 @@
+tech-icon {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 80px;
+    text-align: center;
+}
+.tech-icon-icon {
+    align-self: center;
+    font-size: 2em;
+    color: #c2b8b8;
+}
+.tech-icon-name {
+    align-self: center;
+}

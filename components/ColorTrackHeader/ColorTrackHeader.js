@@ -1,5 +1,6 @@
 import './ColorTrackHeader.css'
 import { Color } from "../../Color";
+import { ColorTrack } from "../ColorTrack/ColorTrack";
 
 class ColorTrackOption {
 	constructor(color, duration, style) {
@@ -12,69 +13,77 @@ class ColorTrackOption {
 class ColorTrackHeader extends HTMLElement {
 	constructor() {
 		super();
+		// Create the div which all tracks will be encapsulated by. Necessary for styling.
+		this.div = document.createElement("div");
+		// The options for each track.
 		this.colorTrackOptions = [
-			new ColorTrackOption(new Color(324, 77, 55), 8, "transform: translateX(30%)"),
-			new ColorTrackOption(new Color(1, 77, 55), 8.5, "transform: translateX(10%)"),
-			new ColorTrackOption(new Color(27, 77, 55), 8.2, "transform: translateX(60%)"),
-			new ColorTrackOption(new Color(48, 77, 55), 8.5, "transform: translateX(45%)")
+			new ColorTrackOption(new Color(324, 77, 55), '8s', "transform: translateX(30%)"),
+			new ColorTrackOption(new Color(1, 77, 55), '8.5s', "transform: translateX(10%)"),
+			new ColorTrackOption(new Color(27, 77, 55), '8.2s', "transform: translateX(60%)"),
+			new ColorTrackOption(new Color(48, 77, 55), '8.5s', "transform: translateX(45%)")
 		];
-	}
 
-	connectedCallback() {
-		this.createHTML();
-		this.registerEasterEgg();
-	}
-
-	createHTML() {
-		this.innerHTML = '';
-		this.colorTracks = [];
-
-		const div = document.createElement("div");
+		// Create the tracks and append to div, but div isn't mounted yet (connectedCallback()).
 		for(let i = 0; i < 4; i++) {
-			const newTrack = document.createElement("color-track");
+			const newTrack = new ColorTrack();
 			newTrack.setAttribute("color", this.colorTrackOptions[i].color);
 			newTrack.setAttribute("duration", this.colorTrackOptions[i].duration);
 			newTrack.setAttribute("style", this.colorTrackOptions[i].style);
-			div.append(newTrack);
-			this.colorTracks.push(newTrack);
+
+			this.div.append(newTrack);
 		}
-		this.append(div);
 	}
 
-	registerEasterEgg() {
-		const colors = [
-			new Color(0, 77, 55),
-			new Color(50, 77, 55),
-			new Color(125, 77, 55),
-			new Color(270, 77, 55)
-		];
-		if(this.colorTracks && this.colorTracks.length === colors.length) {
-			const sequence = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
-			let currentSequenceIndex = 0;
-			let sequenceTimer = null;
+	connectedCallback() {
+		this.append(this.div);
+		this.registerEasterEgg();
+	}
 
-			document.addEventListener("keydown", (e) => {
-				if(e.key === sequence[currentSequenceIndex]) {
-					currentSequenceIndex++;
+	/**
+	 * Register the Konami Code Easter egg event listener. Whenever the user types the proper sequence of keystrokes,
+	 *   the color tracks should speed up and start changing colors.
+	 */
+	registerEasterEgg() {
+		const sequence = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+		let currentSequenceIndex = 0;
+		let sequenceTimer = null;
+
+		document.addEventListener("keydown", (e) => {
+			// Every time the user gets a character right, move forward in sequence. If they get it wrong, reset.
+			if(e.key === sequence[currentSequenceIndex]) {
+				currentSequenceIndex++;
+			} else {
+				currentSequenceIndex = 0;
+			}
+			// Once the user reaches the end of the sequence, take action.
+			if(currentSequenceIndex === sequence.length) {
+				currentSequenceIndex = 0;
+				const tracks = this.div.querySelectorAll("color-track");
+				// If the Easter egg isn't running yet, start it
+				if(sequenceTimer === null) {
+					// Update the speed of the tracks just once
+					for(let i = 0; i < tracks.length; i++) {
+						tracks[i].setAttribute('duration', '1s');
+					}
+					// Update the color of the tracks at 60fps
+					sequenceTimer = setInterval(() => {
+						for(let i = 0; i < tracks.length; i++) {
+							this.colorTrackOptions[i].color.h += 2;
+							tracks[i].setAttribute('color', this.colorTrackOptions[i].color.toString());
+						}
+					}, (1 / 60) * 1000);
 				} else {
-					currentSequenceIndex = 0;
-				}
-				if(currentSequenceIndex === sequence.length) {
-					currentSequenceIndex = 0;
-					if(sequenceTimer === null) {
-						sequenceTimer = setInterval(() => {
-							for(let i = 0; i < this.colorTracks.length; i++) {
-								colors[i].h += 2;
-								this.colorTracks[i].setColor(colors[i]);
-							}
-						}, 1 / 60);
-					} else {
-						clearInterval(sequenceTimer);
-						sequenceTimer = null;
+					// If the Easter egg is already running, then stop it and go back to normal speed
+					//   (but keep the colors).
+					clearInterval(sequenceTimer);
+					sequenceTimer = null;
+					for(let i = 0; i < tracks.length; i++) {
+						tracks[i].setAttribute('duration', this.colorTrackOptions[i].duration);
 					}
 				}
-			});
-		}
+			}
+		});
+
 	}
 }
 

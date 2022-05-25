@@ -2,9 +2,8 @@ import './ContactMe.css'
 
 class ContactMe extends HTMLElement {
 
-	constructor() {super();}
-
-	connectedCallback() {
+	constructor() {
+		super();
 		this.innerHTML = `
 			<h1>Contact Me</h1>
 			<div class="row">

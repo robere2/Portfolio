@@ -7,7 +7,7 @@ class Color {
 	}
 
 	toString() {
-		return `hsl(${this.h}, ${this.s}%, ${this.l}%)`;
+		return `hsl(${this.h % 360}, ${this.s}%, ${this.l}%)`;
 	}
 }
 

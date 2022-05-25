@@ -1,19 +1,20 @@
-
-.profile-btn {
-    font-size: 3em;
-    margin: 0 10px;
+.tech-section,.profiles-section {
+    background-color: var(--tech-background-color);
+    margin-right: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 33vh;
+    max-height: 230px;
+    overflow: scroll;
+    padding-top: 30px;
 }
-.profile-btn:hover {
-    color: inherit;
+.tech-section {
+    justify-content: center;
 }
-.profile-btn .fa-github {
-    color: var(--github-logo-color);
+.profiles-section {
+    padding-left: 30px;
 }
-.profile-btn .fa-linkedin {
-    background:linear-gradient(to top, #ffffff00 25%, #ffffff 25%, #ffffff 90%, #ffffff00 90%);
-    color: rgb(45,100,188);
-}
-.profile-btn .fa-npm {
-    background:linear-gradient(to top, #ffffff00 36%, #ffffff 36%, #ffffff 70%, #ffffff00 70%);
-    color: rgb(186,38,26);
+.tech-section-fade {
+    background-image: linear-gradient(to bottom, #000000, var(--tech-background-color));
 }
