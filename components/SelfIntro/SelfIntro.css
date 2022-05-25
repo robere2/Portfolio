@@ -24,6 +24,32 @@
     height: 0;
 }
 
+.profiles {
+    margin-bottom: 35px;
+}
+.profile-btn {
+    font-size: 2.5em;
+    margin: 0 10px;
+}
+
+.profile-btn:hover {
+    color: inherit;
+}
+
+.profile-btn .fa-github {
+    color: var(--github-logo-color);
+}
+
+.profile-btn .fa-linkedin {
+    background: linear-gradient(to top, #ffffff00 25%, #ffffff 25%, #ffffff 90%, #ffffff00 90%);
+    color: rgb(45, 100, 188);
+}
+
+.profile-btn .fa-npm {
+    background: linear-gradient(to top, #ffffff00 36%, #ffffff 36%, #ffffff 70%, #ffffff00 70%);
+    color: rgb(186, 38, 26);
+}
+
 /* Break line earlier on larger displays, to allow room for the headshot */
 @media(min-width: 1108px) {
     .intro-text-spacer {

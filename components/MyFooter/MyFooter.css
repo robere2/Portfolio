@@ -1,30 +1,3 @@
-.profiles {
-    text-align: center;
-    margin-bottom: 5px;
-}
-.profile-btn {
-    font-size: 2em;
-    margin: 0 10px;
-}
-
-.profile-btn:hover {
-    color: inherit;
-}
-
-.profile-btn .fa-github {
-    color: var(--github-logo-color);
-}
-
-.profile-btn .fa-linkedin {
-    background: linear-gradient(to top, #ffffff00 25%, #ffffff 25%, #ffffff 90%, #ffffff00 90%);
-    color: rgb(45, 100, 188);
-}
-
-.profile-btn .fa-npm {
-    background: linear-gradient(to top, #ffffff00 36%, #ffffff 36%, #ffffff 70%, #ffffff00 70%);
-    color: rgb(186, 38, 26);
-}
-
 my-footer {
     display: block;
     height: 100px;

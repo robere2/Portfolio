@@ -6,7 +6,7 @@ import { MySkills } from "./components/MySkills/MySkills";
 import { ContactMe } from "./components/ContactMe/ContactMe";
 import { MyProjects } from "./components/MyProjects/MyProjects";
 import { MyFooter } from "./components/MyFooter/MyFooter";
-import { TechIcon } from "./components/Technology/TechIcon";
+import { TechIcon } from "./components/TechIcon/TechIcon";
 
 window.customElements.define("color-track", ColorTrack);
 window.customElements.define("color-track-header", ColorTrackHeader);
