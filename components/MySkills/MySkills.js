@@ -1,6 +1,6 @@
 import './AboutMe.css'
 
-class AboutMe extends HTMLElement {
+class MySkills extends HTMLElement {
 	constructor() {
 		super();
 
@@ -40,4 +40,4 @@ class AboutMe extends HTMLElement {
 	}
 }
 
-export { AboutMe }
+export { MySkills }
