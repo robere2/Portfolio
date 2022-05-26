@@ -10,6 +10,7 @@ class MySkills extends HTMLElement {
                 <h2>Languages</h2>
                 <p class="skills-description">These are the programming languages I have the most experience with.</p>
                 <div class="tech-section languages">
+                	<div class="tech-section-fade"></div>
 	                <repeating-list class="tech-section-content" data-margin-width="21">
 						<tech-icon data-name="JavaScript" data-icon="fab fa-js-square"></tech-icon>
 						<tech-icon data-name="HTML/CSS" data-icon="fab fa-html5"></tech-icon>
@@ -23,6 +24,7 @@ class MySkills extends HTMLElement {
                 <h2>Technologies</h2>
                 <p class="skills-description">This is just some of the technologies I have worked with the most.</p>
                 <div class="tech-section tech">
+                	<div class="tech-section-fade"></div>
 	                <repeating-list class="tech-section-content" data-margin-width="21">
 						<tech-icon data-name="Vue" data-icon="fab fa-vuejs"></tech-icon>
 						<tech-icon data-name="React" data-icon="fab fa-react"></tech-icon>

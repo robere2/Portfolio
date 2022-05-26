@@ -10,6 +10,16 @@
     margin: 0 20px;
 
 }
+.tech-section-fade {
+    position: absolute;
+    height: 17vh;
+    width: calc(100% - 20px);
+    /* 40px fade-in on both sides */
+    background-image: linear-gradient(to left, var(--background-color),
+        #00000000 40px, #00000000 calc(100% - 40px), var(--background-color) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
 .skills-description {
     height: 1.5em;
     padding: 0 10px;
