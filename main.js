@@ -7,12 +7,14 @@ import { ContactMe } from "./components/ContactMe/ContactMe";
 import { MyProjects } from "./components/MyProjects/MyProjects";
 import { MyFooter } from "./components/MyFooter/MyFooter";
 import { TechIcon } from "./components/TechIcon/TechIcon";
+import { RepeatingList } from "./components/RepeatingList/RepeatingList";
 
 window.customElements.define("color-track", ColorTrack);
 window.customElements.define("color-track-header", ColorTrackHeader);
 window.customElements.define("self-intro", SelfIntro);
+window.customElements.define("repeating-list", RepeatingList);
+window.customElements.define("tech-icon", TechIcon);
 window.customElements.define("my-skills", MySkills);
 window.customElements.define("contact-me", ContactMe);
 window.customElements.define("my-projects", MyProjects);
 window.customElements.define("my-footer", MyFooter);
-window.customElements.define("tech-icon", TechIcon);

@@ -19,8 +19,8 @@ class ColorTrackHeader extends HTMLElement {
 		this.colorTrackOptions = [
 			new ColorTrackOption(new Color(324, 77, 55), '8s', "transform: translateX(30%)"),
 			new ColorTrackOption(new Color(1, 77, 55), '8.5s', "transform: translateX(10%)"),
-			new ColorTrackOption(new Color(27, 77, 55), '8.2s', "transform: translateX(60%)"),
-			new ColorTrackOption(new Color(48, 77, 55), '8.5s', "transform: translateX(45%)")
+			new ColorTrackOption(new Color(27, 77, 55), '7.5s', "transform: translateX(75%)"),
+			new ColorTrackOption(new Color(48, 77, 55), '9s', "transform: translateX(45%)")
 		];
 
 		// Create the tracks and append to div, but div isn't mounted yet (connectedCallback()).

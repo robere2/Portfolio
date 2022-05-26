@@ -8,7 +8,7 @@ tech-icon {
 .tech-icon-icon {
     align-self: center;
     font-size: 2em;
-    color: #c2b8b8;
+    color: var(--tech-icon-color);
 }
 .tech-icon-name {
     align-self: center;

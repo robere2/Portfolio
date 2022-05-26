@@ -1,0 +1,13 @@
+repeating-list {
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+}
+repeating-list:hover {
+    overflow: scroll;
+}
+@media (prefers-reduced-motion: reduce) {
+    repeating-list {
+        overflow: scroll;
+    }
+}

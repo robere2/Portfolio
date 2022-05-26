@@ -10,7 +10,7 @@
   --input-border-color: #aaaaaa;
   --input-text-color: #1a1616;
   --tech-background-color: #f6f3f3;
-  --tech-icon-color: #2f2e2e;
+  --tech-icon-color: #494848;
 }
 
 /* Dark mode */
@@ -32,6 +32,42 @@
   }
   .tabs button[data-active="true"] {
     filter: brightness(130%);
+  }
+}
+
+/* ----------------- */
+
+/* https://youtrack.jetbrains.com/issue/WEB-55382/Incorrect-CSS-inspection-for-media-query-prefers-contrast */
+/* High contrast */
+/*noinspection CssInvalidMediaFeature*/
+@media(prefers-contrast: more) {
+  :root {
+    --secondary: #000000;
+    --title-color: #000000;
+    --paragraph-color: #000000;
+    --background-color: #ffffff;
+    --input-color: #efefef;
+    --input-border-color: #232323;
+    --input-text-color: #000000;
+    --github-logo-color: #12110E;
+    --tech-background-color: #f6f3f3;
+    --tech-icon-color: #0e0e0e;
+  }
+}
+/* High contrast */
+/*noinspection CssInvalidMediaFeature*/
+@media(prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --secondary: #ffffff;
+    --title-color: #ffffff;
+    --paragraph-color: #ffffff;
+    --background-color: #000000;
+    --input-color: #181818;
+    --input-border-color: #ececec;
+    --input-text-color: #ffffff;
+    --github-logo-color: #ffffff;
+    --tech-background-color: #101010;
+    --tech-icon-color: #e0e0e0;
   }
 }
 
@@ -99,38 +135,6 @@ button {
 }
 .tabs button:hover {
   transform: translateY(-0.25em);
-}
-
-/* ----------------- */
-
-/* https://youtrack.jetbrains.com/issue/WEB-55382/Incorrect-CSS-inspection-for-media-query-prefers-contrast */
-/* High contrast */
-/*noinspection CssInvalidMediaFeature*/
-@media(prefers-contrast: more) {
-  :root {
-    --secondary: #000000;
-    --title-color: #000000;
-    --paragraph-color: #000000;
-    --background-color: #ffffff;
-    --input-color: #efefef;
-    --input-border-color: #232323;
-    --input-text-color: #000000;
-    --github-logo-color: rgb(18, 17, 14)
-  }
-}
-/* High contrast */
-/*noinspection CssInvalidMediaFeature*/
-@media(prefers-contrast: more) and (prefers-color-scheme: dark) {
-  :root {
-    --secondary: #ffffff;
-    --title-color: #ffffff;
-    --paragraph-color: #ffffff;
-    --background-color: #000000;
-    --input-color: #181818;
-    --input-border-color: #ececec;
-    --input-text-color: #ffffff;
-    --github-logo-color: #ffffff;
-  }
 }
 
 /* ----------------- */

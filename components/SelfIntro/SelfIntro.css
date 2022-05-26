@@ -41,12 +41,16 @@
 }
 
 .profile-btn .fa-linkedin {
+    /* Width & gradient adds the white background to match the actual logo */
+    width: 32px;
     background: linear-gradient(to top, #ffffff00 25%, #ffffff 25%, #ffffff 90%, #ffffff00 90%);
     color: rgb(45, 100, 188);
 }
 
 .profile-btn .fa-npm {
-    background: linear-gradient(to top, #ffffff00 36%, #ffffff 36%, #ffffff 70%, #ffffff00 70%);
+    /* Width & gradient adds the white background to match the actual logo */
+    width: 42px;
+    background: linear-gradient(to top, #ffffff00 37%, #ffffff 37%, #ffffff 70%, #ffffff00 70%);
     color: rgb(186, 38, 26);
 }
 

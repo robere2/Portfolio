@@ -1,22 +1,14 @@
-.tech-section,.profiles-section {
-    background-color: var(--tech-background-color);
-    margin-right: 20px;
-    border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    height: 33vh;
-    max-height: 230px;
-    overflow: scroll;
-    padding-top: 30px;
+.tech-section, .tech-section-content {
+    height: 17vh;
+    width: calc(100% - 20px);
+    padding-top: 10px;
 }
 .tech-section {
-    justify-content: center;
+    position: relative;
 }
-.profiles-section {
-    padding-left: 30px;
-}
-.tech-section-fade {
-    background-image: linear-gradient(to bottom, #000000, var(--tech-background-color));
+.tech-section-content tech-icon {
+    margin: 0 20px;
+
 }
 .skills-description {
     height: 1.5em;
