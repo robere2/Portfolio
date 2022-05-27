@@ -1,11 +1,51 @@
-import './RepeatingList.css'
+import "./RepeatingList.css";
 
 class RepeatingList extends HTMLElement {
-	#interval = null;
+	/**
+	 * A list containing a copy of all the HTML elements that were originally fed into the body of this RepeatingList.
+	 *   These are used to determine what elements to add to the list, and when. Custom elements should be prepared to
+	 *   be constructed and destructed on-demand.
+	 * @type {Node[]}
+	 */
 	#listElements = [];
+	/**
+	 * Constant to get the default speed of 1 to something more desirable.
+	 * @type {number}
+	 */
+	#speedMultiplier = 13;
+	/**
+	 * Timestamp at which this repeating list was last rendered.
+	 * @type {null|number}
+	 */
+	#lastRenderTimestamp = null;
+	/**
+	 * Flag storing whether the last render was in frozen state, i.e. the user either had reduced motion enabled
+	 *   or all elements were able to fit within the list without the need for scrolling. Used to check if we need to
+	 *   modify the DOM, as there's no point in modifying if previous frame is same as current one.
+	 * @type {boolean}
+	 */
+	#lastRenderWasFrozen = false;
+	/**
+	 * Width of one instance of each element in the list. We need this to check how wide the list needs to be in order
+	 *   for scrolling to be unnecessary, and we can just display the elements statically.
+	 * @type {null}
+	 */
+	#widthOfAllElements = null;
+	/**
+	 * Index of the element in {@link ##listElements} which is to be added next to the DOM.
+	 * @type {number}
+	 */
+	#currentIdx = 0;
+	/**
+	 * List of instances of copies of nodes of the first element in {@link ##listElements}. We use this to
+	 *   check A) how many elements are in the DOM (and log a warning if it gets too many) and B) get the pixel
+	 *   to jump back to when looping back around in the list.
+	 * @type {[]}
+	 */
+	#firstElementInstances = []
 
 	static get observedAttributes() {
-		return ['data-margin-width'];
+		return ["data-margin-width"];
 	}
 
 	constructor() {
@@ -14,18 +54,15 @@ class RepeatingList extends HTMLElement {
 		for(const child of this.children) {
 			this.#listElements.push(child.cloneNode(true));
 		}
-		this.innerHTML = ``;
 	}
 
 	connectedCallback() {
-		this.#generate();
-		new ResizeObserver(() => {
-			this.#generate();
-		}).observe(this);
+		this.setup();
+		requestAnimationFrame(this.render.bind(this));
 	}
 
 	attributeChangedCallback() {
-		this.#generate();
+		this.setup();
 	}
 
 	/**
@@ -38,8 +75,6 @@ class RepeatingList extends HTMLElement {
 		let marginWidth = this.clientWidth;
 		if(this.hasAttribute("data-margin-width")) {
 			marginWidth = parseInt(this.getAttribute("data-margin-width"));
-		} else {
-			console.warn('repeating-list does not have a data-margin-width set, which could result in unexpected behavior.')
 		}
 		return marginWidth;
 	}
@@ -49,91 +84,96 @@ class RepeatingList extends HTMLElement {
 	 * @returns {number} The parsed float value of the data-speed attribute, or the default of 1 if one wasn't provided.
 	 */
 	#getSpeed() {
-		let speed;
+		let speed = 1;
 		if(this.hasAttribute("data-speed")) {
 			speed = parseFloat(this.getAttribute("data-speed"));
-		} else {
-			speed = 1;
 		}
 		return speed;
 	}
 
 	/**
-	 * Generate the list and it's animation loop. Also delete any previous list/animation loop if
-	 *   this method was called previously. If no animation is necessary because all of the elements
-	 *   fit inside this list without it, then all the elements are simply added and no loop is started.
-	 *   Animation speed is dependent on data-speed attribute, where higher numbers are faster. Changing this
-	 *   data-speed attribute will not restart the animation (it will simply update in-place), but changing
-	 *   data-margin-width will.
+	 * Set up the render by resetting all the settings and verifying attributes.
 	 */
-	#generate() {
-		// Reset every time this method is called. Used for watching resize or attributes.
-		if(this.#interval !== null) {
-			clearInterval(this.#interval);
-			this.innerHTML = ``;
+	setup() {
+		if(!this.hasAttribute("data-margin-width")) {
+			console.warn("repeating-list does not have a data-margin-width set, which could result in unexpected behavior.");
 		}
-		// Disable auto-scrolling if reduced motion is enabled on OS/browser. User can scroll manually.
-		if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-			this.innerHTML = ``;
-			for(let i = 0; i < this.#listElements.length; i++) {
-				this.append(this.#listElements[i].cloneNode(true));
+		this.#currentIdx = 0;
+		this.#firstElementInstances = []
+		this.#lastRenderTimestamp = null;
+		this.#lastRenderWasFrozen = false;
+		this.innerHTML = ``;
+	}
+
+	/**
+	 * Render a frame. This should be passed to requestAnimationFrame().
+	 * @param timestamp {number} Timestamp passed by requestAnimationFrame(). Probably milliseconds since page load.
+	 */
+	render(timestamp) {
+		const shouldReduceAnimation = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		// If the user has reduced motion enabled on their OS/browser, OR if all the elements are able to fit within
+		//   this list without it scrolling, then all we need to do is add all the elements and allow the user to scroll
+		//   manually (if applicable).
+		if(shouldReduceAnimation || (this.#widthOfAllElements !== null && this.#widthOfAllElements <= this.clientWidth)) {
+			if(!this.#lastRenderWasFrozen) {
+				this.setup();
+				for(let i = 0; i < this.#listElements.length; i++) {
+					this.append(this.#listElements[i].cloneNode(true));
+				}
+				this.#lastRenderWasFrozen = true;
 			}
-			return;
-		}
-
-		let firstElementInstances = [];
-		const marginWidth = this.#getMarginWidth();
-		// Index of the list element which is to be added next.
-		let currentIdx = 0;
-		// Speed of the scrolling is independent of framerate, so timestamps must be used.
-		let lastFrameTimestamp = null;
-
-		// Attempt to run at 60fps
-		this.#interval = setInterval(() => {
+		} else {
+			this.#lastRenderWasFrozen = false;
 			const speed = this.#getSpeed();
 			// Auto-scroll if the user isn't hovering.
-			if(!this.matches(":hover")) {
-				const timeDiff = Date.now() - lastFrameTimestamp;
-				this.scrollLeft += timeDiff / (13 / speed);
+			if(!this.matches(":hover") && this.#lastRenderTimestamp !== null) {
+				const timeDiff = timestamp - this.#lastRenderTimestamp;
+				this.scrollLeft += timeDiff / (this.#speedMultiplier / speed);
 			}
+
 			// If we've made a full loop by reaching the second instance of the first element,
 			//   go back to the front of the list.
-			if(this.scrollLeft >= firstElementInstances[1]?.offsetLeft) {
-				this.scrollLeft = firstElementInstances[0]?.offsetLeft;
+			if(this.scrollLeft >= this.#firstElementInstances[1]?.offsetLeft) {
+				this.scrollLeft = this.#firstElementInstances[0]?.offsetLeft;
 			}
+
 			// Add elements until there is no longer a gap between the last element and the right
 			//   edge of this repeating list. A data-margin-width is used to account for the size of the
 			//   gap between elements.
 			for(;
-				this.scrollWidth - this.scrollLeft - marginWidth < this.clientWidth;
-				currentIdx = (currentIdx + 1) % this.#listElements.length // Increment & wrap around
+				this.scrollWidth - this.scrollLeft - this.#getMarginWidth() < this.clientWidth;
+				this.#currentIdx = (this.#currentIdx + 1) % this.#listElements.length // Increment & wrap around
 			) {
-
-				const element = this.#listElements[currentIdx].cloneNode(true);
-				// Every time we come across an instance of the first element in the list,
-				//   save it to the list to keep track of how large our list is. A properly-configured
-				//   data-margin-width would mean this is always less than or equal to 3.
-				if(currentIdx === 0) {
-					// If we've already reached the first element a second time within the first frame, then
-					//   all the content clearly fits in the list without scrolling, and we should just stop.
-					if(!lastFrameTimestamp && firstElementInstances.length === 1) {
-						clearInterval(this.#interval);
-						return;
-					}
-					firstElementInstances.push(element);
-				}
-
+				const element = this.#listElements[this.#currentIdx].cloneNode(true);
 				this.append(element);
-				// If data-margin-width is not configured properly, elements will likely be added endlessly, which will
-				//   slow down clients over time.
-				if(firstElementInstances.length === 4 && currentIdx === 0) {
-					console.warn('repeating-list probably has a misconfigured data-margin-width, which could result in an infinitely-growing document.')
+
+				// We want to take a few actions every time we get back to the first element in the list...
+				if(this.#currentIdx === 0) {
+					// First, save this element instance. We use this list to know how many are in the DOM.
+					this.#firstElementInstances.push(element);
+					// When we come across the second instance of the first element, save the current width.
+					//   We need that to know at what point the scrolling animation isn't necessary.
+					if(this.#firstElementInstances.length === 2) {
+						// setTimeout must be used to allow the element to be mounted to the DOM. It means results might
+						//   not be 100% accurate in edge cases, but is the easiest solution.
+						setTimeout(() => {
+							this.#widthOfAllElements = this.scrollLeft + element.offsetLeft + this.#getMarginWidth();
+						}, 0);
+					}
+
+					// If data-margin-width is not configured properly, elements will likely be added endlessly, which will
+					//   slow down clients over time.
+					if(this.#firstElementInstances.length === 4) {
+						console.warn("repeating-list probably has a misconfigured data-margin-width, which could result in an infinitely-growing document.");
+					}
 				}
 			}
-			lastFrameTimestamp = Date.now();
-		}, (1 / 60) * 1000);
+		}
+
+		this.#lastRenderTimestamp = timestamp;
+		requestAnimationFrame(this.render.bind(this));
 	}
 
 }
 
-export { RepeatingList }
+export { RepeatingList };

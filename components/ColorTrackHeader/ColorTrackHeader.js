@@ -71,7 +71,7 @@ class ColorTrackHeader extends HTMLElement {
 							this.colorTrackOptions[i].color.h += 2;
 							tracks[i].setAttribute('color', this.colorTrackOptions[i].color.toString());
 						}
-					}, (1 / 60) * 1000);
+					}, (1 / 60) * 1000); // TODO switch to requestAnimationFrame
 				} else {
 					// If the Easter egg is already running, then stop it and go back to normal speed
 					//   (but keep the colors).

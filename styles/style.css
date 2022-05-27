@@ -9,6 +9,7 @@
   --input-color: #e7e3e3;
   --input-border-color: #aaaaaa;
   --input-text-color: #1a1616;
+  --required-input-color: #ff0000;
   --tech-background-color: #f6f3f3;
   --tech-icon-color: #494848;
 }
@@ -73,9 +74,6 @@
 
 /* ----------------- */
 
-html {
-  scroll-behavior: smooth;
-}
 body {
   margin: 0;
   color: var(--paragraph-color);
