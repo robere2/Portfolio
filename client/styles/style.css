@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Merriweather&display=swap');
+
+:root {
+  --primary: #bd448d;
+  --secondary: #3f3f3f;
+  --title-color: #000000;
+  --paragraph-color: #1a1616;
+  --background-color: #faf9f9;
+  --input-color: #e7e3e3;
+  --input-border-color: #aaaaaa;
+  --input-text-color: #1a1616;
+  --required-input-color: #ff0000;
+  --tech-background-color: #f6f3f3;
+  --tech-icon-color: #494848;
+  --alert-error-background-color: #f9b2b2;
+  --alert-success-background-color: #b9f9b2;
+}
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+  :root {
+    --primary: #CB6CA5;
+    --secondary: #c2bcbc;
+    --title-color: #fff3f3;
+    --paragraph-color: #fff9f9;
+    --background-color: #262424;
+    --input-color: #3b3838;
+    --input-border-color: #696464;
+    --input-text-color: #ffffff;
+    --tech-background-color: #1f1e1e;
+    --tech-icon-color: #c2b8b8;
+    --alert-error-background-color: #723434;
+    --alert-success-background-color: #3b7335;
+  }
+  a:hover {
+    filter: saturate(50%) brightness(150%);
+  }
+  .tabs button[data-active="true"] {
+    filter: brightness(130%);
+  }
+}
+
+/* ----------------- */
+
+/* https://youtrack.jetbrains.com/issue/WEB-55382/Incorrect-CSS-inspection-for-media-query-prefers-contrast */
+/* High contrast */
+/*noinspection CssInvalidMediaFeature*/
+@media(prefers-contrast: more) {
+  :root {
+    --secondary: #000000;
+    --title-color: #000000;
+    --paragraph-color: #000000;
+    --background-color: #ffffff;
+    --input-color: #efefef;
+    --input-border-color: #232323;
+    --input-text-color: #000000;
+    --github-logo-color: #12110E;
+    --tech-background-color: #f6f3f3;
+    --tech-icon-color: #0e0e0e;
+  }
+}
+/* High contrast */
+/*noinspection CssInvalidMediaFeature*/
+@media(prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --secondary: #ffffff;
+    --title-color: #ffffff;
+    --paragraph-color: #ffffff;
+    --background-color: #000000;
+    --input-color: #181818;
+    --input-border-color: #ececec;
+    --input-text-color: #ffffff;
+    --github-logo-color: #ffffff;
+    --tech-background-color: #101010;
+    --tech-icon-color: #e0e0e0;
+  }
+}
+
+/* ----------------- */
+
+body {
+  margin: 0;
+  color: var(--paragraph-color);
+  background-color: var(--background-color);
+}
+h1,h2,h3,h4,h5,h6,label,.koulen, .tabs button {
+  font-family: 'Koulen', cursive;
+}
+p,.merriweather {
+  font-family: 'Merriweather', serif;
+}
+a {
+  color: inherit;
+  transition: color 0.3s, filter 0.3s;
+}
+a:hover {
+  color: var(--primary);
+}
+hr {
+  border-color: var(--primary);
+  filter: brightness(80%);
+}
+button {
+  cursor: pointer;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  background-color: var(--input-color);
+  color: var(--input-text-color);
+  padding: 10px 15px;
+}
+
+/* ----------------- */
+
+.content {
+  padding: 0 5%;
+  max-width: 1200px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.row {
+  display: flex;
+  width: 100%;
+}
+.col {
+  width: 100%;
+}
+
+/* ----------------- */
+
+.tabs button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  margin: 5px;
+  color: var(--secondary);
+  transition: color 0.3s, filter 0.3s, transform 0.3s;
+}
+.tabs button:hover {
+  transform: translateY(-0.25em);
+}
+
+/* ----------------- */
+
+@media(max-width: 500px) {
+  .row {
+    display: inherit;
+  }
+}
+
+@media (max-width: 400px) {
+  .tabs button {
+    display: block;
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name='description' content='Software development portfolio for Erik. He is a full stack developer.'>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://kit.fontawesome.com/6fa073f3b2.js" defer crossorigin="anonymous"></script>
+    <title>Erik Roberts</title>
+</head>
+<body>
+<div id="app">
+    <color-track-header></color-track-header>
+    <div class="content">
+        <self-intro></self-intro>
+        <div class="tabs">
+            <a href="#projects"><button type="button">Projects</button></a>
+            <a href="#skills"><button type="button">Skills</button></a>
+            <a href="#contact"><button type="button">Contact Me</button></a>
+        </div>
+        <hr>
+        <my-projects id="projects"></my-projects>
+        <my-skills id="skills"></my-skills>
+        <contact-me id="contact"></contact-me>
+    </div>
+    <my-footer></my-footer>
+</div>
+<script type="module" src="/main.js"></script>
+</body>
+</html>
