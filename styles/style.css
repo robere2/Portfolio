@@ -12,6 +12,8 @@
   --required-input-color: #ff0000;
   --tech-background-color: #f6f3f3;
   --tech-icon-color: #494848;
+  --alert-error-background-color: #f9b2b2;
+  --alert-success-background-color: #b9f9b2;
 }
 
 /* Dark mode */
@@ -27,6 +29,8 @@
     --input-text-color: #ffffff;
     --tech-background-color: #1f1e1e;
     --tech-icon-color: #c2b8b8;
+    --alert-error-background-color: #723434;
+    --alert-success-background-color: #3b7335;
   }
   a:hover {
     filter: saturate(50%) brightness(150%);

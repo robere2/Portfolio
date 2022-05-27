@@ -8,7 +8,9 @@ import { MyProjects } from "./components/MyProjects/MyProjects";
 import { MyFooter } from "./components/MyFooter/MyFooter";
 import { TechIcon } from "./components/TechIcon/TechIcon";
 import { RepeatingList } from "./components/RepeatingList/RepeatingList";
+import { MyAlert } from "./components/MyAlert/MyAlert";
 
+window.customElements.define("my-alert", MyAlert);
 window.customElements.define("color-track", ColorTrack);
 window.customElements.define("color-track-header", ColorTrackHeader);
 window.customElements.define("self-intro", SelfIntro);
