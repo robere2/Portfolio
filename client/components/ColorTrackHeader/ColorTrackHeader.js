@@ -19,7 +19,7 @@ class ColorTrackHeader extends HTMLElement {
 	#div = null;
 	/**
 	 * Options for each of the color tracks to be created. This is used at instantiation
-	 *   and elements are inserted into {@link #div}. This also defines how many tracks should actually be created.
+	 *   and elements are inserted into {@link ##div}. This also defines how many tracks should actually be created.
 	 * @type {ColorTrackOption[]}
 	 */
 	#colorTrackOptions = [];
