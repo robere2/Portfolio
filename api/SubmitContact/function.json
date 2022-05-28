@@ -5,15 +5,17 @@
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
+      "methods": ["post"]
     },
     {
       "type": "http",
       "direction": "out",
-      "name": "res"
+      "name": "httpResponse"
+    },{
+      "name": "emailOutput",
+      "type": "sendGrid",
+      "direction": "out",
+      "apiKey" : "TwilioApiKey"
     }
   ]
 }

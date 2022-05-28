@@ -49,7 +49,7 @@ class ContactMe extends HTMLElement {
 		const submitButton = this.querySelector(".contact-submit");
 		this.#setAlert(null);
 
-		submitButton.addEventListener("click", () => {
+		submitButton.addEventListener("click", async () => {
 			const name = this.querySelector(".contact-name").value;
 			const email = this.querySelector(".contact-email").value;
 			const subject = this.querySelector(".contact-subject").value;
@@ -64,7 +64,7 @@ class ContactMe extends HTMLElement {
 			} else if(!body || body.length < 20 || body.length > 2000) {
 				this.#setAlert("Body must be between 20 and 2000 characters in length.", "error");
 			} else {
-				this.#setAlert("Submitted. You should hear from me soon!", "success");
+				await this.send(name, email, subject, body);
 			}
 		});
 	}
@@ -76,8 +76,24 @@ class ContactMe extends HTMLElement {
 	 * @param subject
 	 * @param body
 	 */
-	send(name, email, subject, body) {
-		// TODO
+	async send(name, email, subject, body) {
+		const response = await fetch("/api/SubmitContact", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				name,
+				email,
+				subject,
+				body
+			}) });
+		const responseBody = await response.json();
+		if(response.status === 200) {
+			this.#setAlert(responseBody.message, "success");
+		} else {
+			this.#setAlert(responseBody.error, "error");
+		}
 	}
 }
 
