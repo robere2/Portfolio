@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "esbuild": "^0.14.39",
-    "esbuild-darwin-arm64": "^0.14.39",
     "is-core-module": "^2.9.0",
     "fsevents": "^2.3.2",
     "has": "^1.0.3",
