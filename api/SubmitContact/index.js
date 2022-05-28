@@ -8,10 +8,10 @@ module.exports = async function(context, req) {
 		};
 	}
 
-	const name = req.body.name?.substring(0, 300);
-	const email = req.body.email?.substring(0, 300);
-	const subject = req.body.subject?.substring(0, 100);
-	const body = req.body.body?.substring(0, 2000);
+	let name = req.body.name;
+	let email = req.body.email;
+	let subject = req.body.subject;
+	let body = req.body.body;
 
 	if(!name || !email || !subject || !body) {
 		return {
@@ -21,6 +21,12 @@ module.exports = async function(context, req) {
 			}
 		};
 	}
+
+	name = name.substring(0, 300);
+	email = email.substring(0, 300);
+	subject = subject.substring(0, 100);
+	body = body.substring(0, 2000);
+
 	if(subject.length < 5 || body.length < 20) {
 		return {
 			httpResponse: {
