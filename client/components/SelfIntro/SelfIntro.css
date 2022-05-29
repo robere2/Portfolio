@@ -1,4 +1,6 @@
-
+.intro {
+    justify-content: space-between;
+}
 .intro-text-title {
     font-size: 140px;
     line-height: 100%;
@@ -57,10 +59,9 @@
 /* Break line earlier on larger displays, to allow room for the headshot */
 @media(min-width: 1108px) {
     .intro-text-spacer {
-        width: 100%;
+        width: 500px;
     }
 }
-
 
 /* Shrink headshot on smaller computers/larger tablets */
 @media (min-width:801px) and (max-width: 850px) {
