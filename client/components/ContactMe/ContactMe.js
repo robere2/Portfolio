@@ -47,8 +47,7 @@ class ContactMe extends HTMLElement {
 	}
 
 	connectedCallback() {
-		const submitButton = this.querySelector("#contact-submit");
-		this.#setAlert(null, "error");
+		const submitButton = this.querySelector(".contact-submit");
 
 		submitButton.addEventListener("click", async () => {
 			const name = this.querySelector("#contact-name").value;
