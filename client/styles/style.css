@@ -1,44 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Koulen&family=Merriweather&display=swap');
 
-:root {
-  --primary: #bd448d;
-  --secondary: #3f3f3f;
-  --title-color: #000000;
-  --paragraph-color: #1a1616;
-  --background-color: #faf9f9;
-  --input-color: #e7e3e3;
-  --input-border-color: #aaaaaa;
-  --input-text-color: #1a1616;
-  --required-input-color: #ff0000;
-  --tech-background-color: #f6f3f3;
-  --tech-icon-color: #494848;
-  --alert-error-background-color: #f9b2b2;
-  --alert-success-background-color: #b9f9b2;
-}
-
-/* Dark mode */
-@media(prefers-color-scheme: dark) {
-  :root {
-    --primary: #CB6CA5;
-    --secondary: #c2bcbc;
-    --title-color: #fff3f3;
-    --paragraph-color: #fff9f9;
-    --background-color: #262424;
-    --input-color: #3b3838;
-    --input-border-color: #696464;
-    --input-text-color: #ffffff;
-    --tech-background-color: #1f1e1e;
-    --tech-icon-color: #c2b8b8;
-    --alert-error-background-color: #723434;
-    --alert-success-background-color: #3b7335;
-  }
-  a:hover {
-    filter: saturate(50%) brightness(150%);
-  }
-  .tabs button[data-active="true"] {
-    filter: brightness(130%);
-  }
-}
 
 /* ----------------- */
 
@@ -54,7 +15,6 @@
     --input-color: #efefef;
     --input-border-color: #232323;
     --input-text-color: #000000;
-    --github-logo-color: #12110E;
     --tech-background-color: #f6f3f3;
     --tech-icon-color: #0e0e0e;
   }
@@ -70,7 +30,6 @@
     --input-color: #181818;
     --input-border-color: #ececec;
     --input-text-color: #ffffff;
-    --github-logo-color: #ffffff;
     --tech-background-color: #101010;
     --tech-icon-color: #e0e0e0;
   }
@@ -90,11 +49,11 @@ p,.merriweather {
   font-family: 'Merriweather', serif;
 }
 a {
-  color: inherit;
+  color: var(--primary);
   transition: color 0.3s, filter 0.3s;
 }
 a:hover {
-  color: var(--primary);
+  filter: saturate(50%) brightness(75%);
 }
 hr {
   border-color: var(--primary);
@@ -154,3 +113,48 @@ button {
   }
 }
 
+
+:root {
+  --primary: #bd448d;
+  --secondary: #3f3f3f;
+  --title-color: #000000;
+  --paragraph-color: #1a1616;
+  --background-color: #faf9f9;
+  --input-color: #e7e3e3;
+  --input-border-color: #aaaaaa;
+  --input-text-color: #1a1616;
+  --required-input-color: #ff0000;
+  --tech-background-color: #f6f3f3;
+  --tech-icon-color: #494848;
+  --alert-error-background-color: #f9b2b2;
+  --alert-success-background-color: #b9f9b2;
+  --github-logo-color: #12110E;
+}
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+  :root {
+    --primary: #CB6CA5;
+    --secondary: #c2bcbc;
+    --title-color: #fff3f3;
+    --paragraph-color: #fff9f9;
+    --background-color: #262424;
+    --input-color: #3b3838;
+    --input-border-color: #696464;
+    --input-text-color: #ffffff;
+    --tech-background-color: #1f1e1e;
+    --tech-icon-color: #c2b8b8;
+    --alert-error-background-color: #723434;
+    --alert-success-background-color: #3b7335;
+    --github-logo-color: #ffffff;
+  }
+  a {
+    filter: brightness(125%);
+  }
+  a:hover {
+    filter: saturate(50%) brightness(150%);
+  }
+  .tabs button[data-active="true"] {
+    filter: brightness(130%);
+  }
+}
