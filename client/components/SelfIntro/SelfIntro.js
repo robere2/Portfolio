@@ -1,5 +1,5 @@
 import './SelfIntro.css'
-import headshot from '../../assets/headshot.webp'
+import headshot from '../../public/headshot.webp'
 
 class SelfIntro extends HTMLElement {
 
