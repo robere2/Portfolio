@@ -54,7 +54,7 @@ module.exports = async function(context, req) {
                 email: process.env.SenderEmail,
                 name: name
             },
-			subject: subject,
+			subject: "[Contact] " + subject,
 			content: [{
 				type: "text/plain",
 				value: body
