@@ -14,17 +14,18 @@ class ContactMe extends HTMLElement {
 			            <div class="row">
 			                <div class="name-wrapper">
 			                    <label for="contact-name">Your Name<span class="required" aria-label="required"> *</span></label>
-			                    <input type="text" class="contact-name" maxlength="200">
+			                    <input type="text" id="contact-name" maxlength="200">
 			                </div>
 			                <div class="email-wrapper">
 			                    <label for="contact-email">Your Email<span class="required" aria-label="required"> *</span></label>
-			                    <input type="email" class="contact-email" maxlength="300">
+			                    <input type="email" id="contact-email" maxlength="300">
 			                </div>
 			            </div>
 			            <label for="contact-subject">Subject<span class="required" aria-label="required"> *</span></label>
-			            <input type="text" class="contact-subject" minlength="5" maxlength="100">
+			            <input type="text" id="contact-subject" minlength="5" maxlength="100">
+			            
 			            <label for="contact-body">Body<span class="required" aria-label="required"> *</span></label>
-			            <textarea class="contact-body" minlength="20" maxlength="2000"></textarea>
+			            <textarea id="contact-body" minlength="20" maxlength="2000"></textarea>
 			        </form>
 			        <button class="contact-submit" type="submit">Submit</button>
 			    </div>
@@ -39,21 +40,21 @@ class ContactMe extends HTMLElement {
 	 */
 	#setAlert(message, style) {
 		if(message === null) {
-			this.querySelector(".contact-error-wrapper").innerHTML = ``;
+			this.querySelector("#contact-error-wrapper").innerHTML = ``;
 		} else {
-			this.querySelector(".contact-error-wrapper").innerHTML = `<my-alert data-type="${style}">${message}</my-alert>`;
+			this.querySelector("#contact-error-wrapper").innerHTML = `<my-alert data-type="${style}">${message}</my-alert>`;
 		}
 	}
 
 	connectedCallback() {
-		const submitButton = this.querySelector(".contact-submit");
-		this.#setAlert(null);
+		const submitButton = this.querySelector("#contact-submit");
+		this.#setAlert(null, "error");
 
 		submitButton.addEventListener("click", async () => {
-			const name = this.querySelector(".contact-name").value;
-			const email = this.querySelector(".contact-email").value;
-			const subject = this.querySelector(".contact-subject").value;
-			const body = this.querySelector(".contact-body").value;
+			const name = this.querySelector("#contact-name").value;
+			const email = this.querySelector("#contact-email").value;
+			const subject = this.querySelector("#contact-subject").value;
+			const body = this.querySelector("#contact-body").value;
 
 			if(!name) {
 				this.#setAlert("You must provide your name.", "error");
