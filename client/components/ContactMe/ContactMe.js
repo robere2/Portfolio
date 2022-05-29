@@ -28,6 +28,7 @@ class ContactMe extends HTMLElement {
 			            <textarea id="contact-body" minlength="20" maxlength="2000"></textarea>
 			        </form>
 			        <button class="contact-submit" type="submit">Submit</button>
+			        <p class="submitting-text"></p>
 			    </div>
 			</div>
 		`;
@@ -40,9 +41,9 @@ class ContactMe extends HTMLElement {
 	 */
 	#setAlert(message, style) {
 		if(message === null) {
-			this.querySelector("#contact-error-wrapper").innerHTML = ``;
+			this.querySelector(".contact-error-wrapper").innerHTML = ``;
 		} else {
-			this.querySelector("#contact-error-wrapper").innerHTML = `<my-alert data-type="${style}">${message}</my-alert>`;
+			this.querySelector(".contact-error-wrapper").innerHTML = `<my-alert data-type="${style}">${message}</my-alert>`;
 		}
 	}
 
@@ -50,21 +51,27 @@ class ContactMe extends HTMLElement {
 		const submitButton = this.querySelector(".contact-submit");
 
 		submitButton.addEventListener("click", async () => {
-			const name = this.querySelector("#contact-name").value;
-			const email = this.querySelector("#contact-email").value;
-			const subject = this.querySelector("#contact-subject").value;
-			const body = this.querySelector("#contact-body").value;
+			const name = this.querySelector("#contact-name");
+			const email = this.querySelector("#contact-email");
+			const subject = this.querySelector("#contact-subject");
+			const body = this.querySelector("#contact-body");
 
 			if(!name) {
 				this.#setAlert("You must provide your name.", "error");
-			} else if(!email || !email.includes("@")) {
+			} else if(!email || !email.value || !email.value.includes("@")) {
 				this.#setAlert("You must provide a valid email address.", "error");
-			} else if(!subject || subject.length < 5 || subject.length > 100) {
+			} else if(!subject || !subject.value || subject.value.length < 5 || subject.value.length > 100) {
 				this.#setAlert("Subject must be between 5 and 100 characters in length.", "error");
-			} else if(!body || body.length < 20 || body.length > 2000) {
+			} else if(!body || !body.value || body.value.length < 20 || body.value.length > 2000) {
 				this.#setAlert("Body must be between 20 and 2000 characters in length.", "error");
 			} else {
-				await this.send(name, email, subject, body);
+				name.setAttribute("disabled", "disabled");
+				email.setAttribute("disabled", "disabled");
+				subject.setAttribute("disabled", "disabled");
+				body.setAttribute("disabled", "disabled");
+				submitButton.style.display = "none";
+				this.querySelector(".submitting-text").innerText = "Submitting...";
+				await this.send(name.value, email.value, subject.value, body.value);
 			}
 		});
 	}
@@ -94,6 +101,7 @@ class ContactMe extends HTMLElement {
 		} else {
 			this.#setAlert(responseBody.error, "error");
 		}
+		this.querySelector(".submitting-text").innerText = "";
 	}
 }
 
