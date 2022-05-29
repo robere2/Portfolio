@@ -6,10 +6,8 @@ class SelfIntro extends HTMLElement {
 	constructor() {
 		super();
 		this.innerHTML = `
-			<div class="row">
-	            <div class="intro">
-	                <h1 class="intro-text-title">Erik Roberts</h1>
-	            </div>
+			<div class="row intro">
+                <h1 class="intro-text-title">Erik Roberts</h1>
 	            <div class="headshot-wrapper">
 	                <img class="headshot" alt="A picture of me." src="${headshot}">
 	            </div>
