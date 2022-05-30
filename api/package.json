@@ -1,0 +1,27 @@
+{
+  "name": "portfolio",
+  "description": "My personal website.",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robere2/Portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "javascript",
+    "vite",
+    "frontend",
+    "static",
+    "azure",
+    "fontawesome"
+  ],
+  "author": "Erik Roberts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robere2/Portfolio/issues"
+  },
+  "homepage": "https://github.com/robere2/Portfolio#readme",
+  "dependencies": {
+    "node-fetch": "^3.2.4"
+  }
+}
