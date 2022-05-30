@@ -22,6 +22,15 @@ input, textarea {
 .name-wrapper {
     margin-right: 10%;
 }
+.recaptcha-branding {
+    display: block;
+    margin-bottom: 15px;
+}
+/* Hide Google reCAPTCHA badge */
+/* https://developers.google.com/recaptcha/docs/faq */
+.grecaptcha-badge {
+    visibility: hidden;
+}
 
 @media(max-width: 500px) {
     .name-wrapper, .email-wrapper {

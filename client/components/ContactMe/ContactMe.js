@@ -1,4 +1,4 @@
-import './ContactMe.css'
+import "./ContactMe.css";
 
 class ContactMe extends HTMLElement {
 
@@ -27,6 +27,12 @@ class ContactMe extends HTMLElement {
 			            <label for="contact-body">Body<span class="required" aria-label="required"> *</span></label>
 			            <textarea id="contact-body" minlength="20" maxlength="2000"></textarea>
 			        </form>
+			        <small class="recaptcha-branding">
+			        	<!-- https://developers.google.com/recaptcha/docs/faq -->
+			        	This site is protected by reCAPTCHA and the Google
+					    <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+					    <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+					</small>
 			        <button class="contact-submit" type="submit">Submit</button>
 			        <p class="submitting-text"></p>
 			    </div>
@@ -71,7 +77,12 @@ class ContactMe extends HTMLElement {
 				body.setAttribute("disabled", "disabled");
 				submitButton.style.display = "none";
 				this.querySelector(".submitting-text").innerText = "Submitting...";
-				await this.send(name.value, email.value, subject.value, body.value);
+				this.#setAlert(null, "error"); // Remove alert
+				grecaptcha.ready(() => {
+					grecaptcha.execute("6LdseC4gAAAAAE-pa7N9ABJoLX2G6Z9Vs7tdPTcC", { action: "contactSubmit" }).then( (token) => {
+						this.send(name.value, email.value, subject.value, body.value, token);
+					});
+				});
 			}
 		});
 	}
@@ -82,8 +93,9 @@ class ContactMe extends HTMLElement {
 	 * @param email
 	 * @param subject
 	 * @param body
+	 * @param token
 	 */
-	async send(name, email, subject, body) {
+	async send(name, email, subject, body, token) {
 		const response = await fetch("/api/SubmitContact", {
 			method: "POST",
 			headers: {
@@ -93,13 +105,16 @@ class ContactMe extends HTMLElement {
 				name,
 				email,
 				subject,
-				body
-			}) });
+				body,
+				token
+			})
+		});
 		const responseBody = await response.json();
 		if(response.status === 200) {
 			this.#setAlert(responseBody.message, "success");
 		} else {
 			this.#setAlert(responseBody.error, "error");
+			this.querySelector(".contact-submit").style.display = "";
 		}
 		this.querySelector(".submitting-text").innerText = "";
 	}
