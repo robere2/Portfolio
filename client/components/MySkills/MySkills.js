@@ -30,7 +30,7 @@ class MySkills extends HTMLElement {
 						<tech-icon data-name="React" data-icon="fab fa-react"></tech-icon>
 						<tech-icon data-name="Angular" data-icon="fab fa-angular"></tech-icon>
 						<tech-icon data-name="MongoDB" data-icon="fak fa-mongodb"></tech-icon>
-						<tech-icon data-name="Microsoft Azure" data-icon="fab fa-microsoft"></tech-icon>
+						<tech-icon data-name="Microsoft Azure" data-icon="fak fa-azure"></tech-icon>
 						<tech-icon data-name="Amazon Web Services" data-icon="fab fa-aws"></tech-icon>
 						<tech-icon data-name="Docker" data-icon="fab fa-docker"></tech-icon>
 						<tech-icon data-name="GitHub Actions" data-icon="fab fa-github"></tech-icon>
