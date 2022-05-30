@@ -5,6 +5,7 @@
     "AzureWebJobs.HttpExample.Disabled": "true",
     "TwilioApiKey": "SENDGRID_API_KEY",
     "RecipientEmail": "YOUR_EMAIL_ADDRESS",
-    "SenderEmail": "SENDGRID_EMAIL_ADDRESS"
+    "SenderEmail": "SENDGRID_EMAIL_ADDRESS",
+    "RecaptchaSecret": "RECAPTCHA_V3_SECRET_KEY"
   }
 }
