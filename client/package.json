@@ -28,17 +28,18 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
+    "a11y-dialog": "^7.4.0",
     "esbuild": "^0.14.39",
-    "is-core-module": "^2.9.0",
+    "function-bind": "^1.1.1",
     "has": "^1.0.3",
+    "is-core-module": "^2.9.0",
+    "nanoid": "^3.3.4",
+    "path-parse": "^1.0.7",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.4.14",
     "resolve": "^1.22.0",
     "rollup": "^2.74.1",
-    "postcss": "^8.4.14",
-    "function-bind": "^1.1.1",
-    "path-parse": "^1.0.7",
     "source-map-js": "^1.0.2",
-    "nanoid": "^3.3.4",
-    "picocolors": "^1.0.0",
     "supports-preserve-symlinks-flag": "^1.0.0"
   },
   "optionalDependencies": {

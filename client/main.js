@@ -9,6 +9,7 @@ import { MyFooter } from "./components/MyFooter/MyFooter";
 import { TechIcon } from "./components/TechIcon/TechIcon";
 import { RepeatingList } from "./components/RepeatingList/RepeatingList";
 import { MyAlert } from "./components/MyAlert/MyAlert";
+import { PrivacyPolicy } from "./components/PrivacyPolicy/PrivacyPolicy";
 
 window.customElements.define("my-alert", MyAlert);
 window.customElements.define("color-track", ColorTrack);
@@ -20,3 +21,4 @@ window.customElements.define("my-skills", MySkills);
 window.customElements.define("contact-me", ContactMe);
 window.customElements.define("my-projects", MyProjects);
 window.customElements.define("my-footer", MyFooter);
+window.customElements.define("privacy-policy", PrivacyPolicy);

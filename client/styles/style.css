@@ -1,40 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Koulen&family=Merriweather&display=swap');
 
-
-/* ----------------- */
-
-/* https://youtrack.jetbrains.com/issue/WEB-55382/Incorrect-CSS-inspection-for-media-query-prefers-contrast */
-/* High contrast */
-/*noinspection CssInvalidMediaFeature*/
-@media(prefers-contrast: more) {
-  :root {
-    --secondary: #000000;
-    --title-color: #000000;
-    --paragraph-color: #000000;
-    --background-color: #ffffff;
-    --input-color: #efefef;
-    --input-border-color: #232323;
-    --input-text-color: #000000;
-    --tech-background-color: #f6f3f3;
-    --tech-icon-color: #0e0e0e;
-  }
-}
-/* High contrast */
-/*noinspection CssInvalidMediaFeature*/
-@media(prefers-contrast: more) and (prefers-color-scheme: dark) {
-  :root {
-    --secondary: #ffffff;
-    --title-color: #ffffff;
-    --paragraph-color: #ffffff;
-    --background-color: #000000;
-    --input-color: #181818;
-    --input-border-color: #ececec;
-    --input-text-color: #ffffff;
-    --tech-background-color: #101010;
-    --tech-icon-color: #e0e0e0;
-  }
-}
-
 /* ----------------- */
 
 body {
@@ -129,6 +94,7 @@ button {
   --alert-error-background-color: #f9b2b2;
   --alert-success-background-color: #b9f9b2;
   --github-logo-color: #12110E;
+  --dialog-background-color: #11111180;
 }
 
 /* Dark mode */
@@ -156,5 +122,37 @@ button {
   }
   .tabs button[data-active="true"] {
     filter: brightness(130%);
+  }
+}
+
+/* https://youtrack.jetbrains.com/issue/WEB-55382/Incorrect-CSS-inspection-for-media-query-prefers-contrast */
+/* High contrast */
+/*noinspection CssInvalidMediaFeature*/
+@media(prefers-contrast: more) {
+  :root {
+    --secondary: #000000;
+    --title-color: #000000;
+    --paragraph-color: #000000;
+    --background-color: #ffffff;
+    --input-color: #efefef;
+    --input-border-color: #232323;
+    --input-text-color: #000000;
+    --tech-background-color: #f6f3f3;
+    --tech-icon-color: #0e0e0e;
+  }
+}
+/* High contrast */
+/*noinspection CssInvalidMediaFeature*/
+@media(prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --secondary: #ffffff;
+    --title-color: #ffffff;
+    --paragraph-color: #ffffff;
+    --background-color: #000000;
+    --input-color: #181818;
+    --input-border-color: #ececec;
+    --input-text-color: #ffffff;
+    --tech-background-color: #101010;
+    --tech-icon-color: #e0e0e0;
   }
 }
