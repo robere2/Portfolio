@@ -126,7 +126,7 @@ class RepeatingList extends HTMLElement {
 			this.#lastRenderWasFrozen = false;
 			const speed = this.#getSpeed();
 			// Auto-scroll if the user isn't hovering.
-			if(!this.matches(":hover") && this.#lastRenderTimestamp !== null) {
+			if(!this.matches(":hover") && !this.matches(":active") && this.#lastRenderTimestamp !== null) {
 				const timeDiff = timestamp - this.#lastRenderTimestamp;
 				this.scrollLeft += timeDiff / (this.#speedMultiplier / speed);
 			}
