@@ -3,7 +3,7 @@ repeating-list {
     display: flex;
     overflow: hidden;
 }
-repeating-list:hover {
+repeating-list:hover, repeating-list:active {
     overflow: scroll;
 }
 @media (prefers-reduced-motion: reduce) {
