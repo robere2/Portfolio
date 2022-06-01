@@ -62,7 +62,7 @@ If you do intend on running the Azure Functions, you also need to create a `loca
 cp api/sample.local.settings.json api/local.settions.json
 ```
 
-And then edit `local.settings.json` to contain the proper values. These values should be kept secret and not committed to version control.
+And then edit `local.settings.json` to contain the proper configuration values. These values should be kept secret and not committed to version control.
 
 #### Running with Functions
 
@@ -83,11 +83,11 @@ Open the application at http://localhost:3000/
 
 ### Building
 
-The client can be built via the command:
+The client can be built via:
 ```shell
 npm run build
 ```
-You can then start up a simple HTTP server to serve your built application via:
+This will output the built project to `/client/dist`. You can then start up a simple HTTP server to serve your built application via:
 ```shell
 npm run preview
 ```
