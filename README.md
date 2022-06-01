@@ -12,7 +12,7 @@ This project is also ready to be deployed to Azure Static Web Apps with CD.
 
 ### Built With
 
-Vite is used for bundle the application. `a11y-dialog` is currently used for dialog windows, but will be replaced as soon as the built-in `<dialog>` component receives higher support.
+Vite is used for bundle the application. `a11y-dialog` is currently used for dialog windows, but will be replaced as soon as the built-in `<dialog>` component receives higher support. As few dependencies as possible are used.
 
 ### Prerequisites
 
