@@ -1,9 +1,9 @@
-import './MyProjects.css'
+import "./MyProjects.css";
 
 class MyProjects extends HTMLElement {
-	constructor() {
-		super();
-		this.innerHTML = `
+    constructor() {
+        super();
+        this.innerHTML = `
 			<h1>Projects</h1>
 			<div class="row projects-row">
 				<div>
@@ -35,8 +35,7 @@ class MyProjects extends HTMLElement {
 				</div>
 			</div>
 		`;
-	}
-
+    }
 }
 
-export { MyProjects }
+export { MyProjects };

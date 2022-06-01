@@ -11,11 +11,12 @@
       "type": "http",
       "direction": "out",
       "name": "httpResponse"
-    },{
+    },
+    {
       "name": "emailOutput",
       "type": "sendGrid",
       "direction": "out",
-      "apiKey" : "TwilioApiKey"
+      "apiKey": "TwilioApiKey"
     }
   ]
 }

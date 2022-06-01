@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
-    <script src="https://kit.fontawesome.com/6fa073f3b2.js" defer crossorigin="anonymous"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/6fa073f3b2.js"
+      defer
+      crossorigin="anonymous"
+    ></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LdseC4gAAAAAE-pa7N9ABJoLX2G6Z9Vs7tdPTcC"></script>
 
     <title>Erik Roberts</title>
-    <meta property="description" content="Hi, I'm Erik. I'm a software engineer with a particular love for JavaScript and the web.">
+    <meta
+      property="description"
+      content="Hi, I'm Erik. I'm a software engineer with a particular love for JavaScript and the web."
+    />
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://ecr.dev/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Erik Roberts">
-    <meta property="og:description" content="Hi, I'm Erik. I'm a software engineer with a particular love for JavaScript and the web.">
-    <meta property="og:image" content="/headshot.webp">
+    <meta property="og:url" content="https://ecr.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Erik Roberts" />
+    <meta
+      property="og:description"
+      content="Hi, I'm Erik. I'm a software engineer with a particular love for JavaScript and the web."
+    />
+    <meta property="og:image" content="/headshot.webp" />
 
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="ecr.dev">
-    <meta property="twitter:url" content="https://ecr.dev/">
-    <meta name="twitter:title" content="Erik Roberts">
-    <meta name="twitter:description" content="Hi, I'm Erik. I'm a software engineer with a particular love for JavaScript and the web.">
-    <meta name="twitter:image" content="/headshot.webp">
-</head>
-<body>
-<div id="app">
-    <color-track-header></color-track-header>
-    <div class="content">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="ecr.dev" />
+    <meta property="twitter:url" content="https://ecr.dev/" />
+    <meta name="twitter:title" content="Erik Roberts" />
+    <meta
+      name="twitter:description"
+      content="Hi, I'm Erik. I'm a software engineer with a particular love for JavaScript and the web."
+    />
+    <meta name="twitter:image" content="/headshot.webp" />
+  </head>
+  <body>
+    <div id="app">
+      <color-track-header></color-track-header>
+      <div class="content">
         <self-intro></self-intro>
         <div class="tabs">
-            <a href="#projects"><button type="button">Projects</button></a>
-            <a href="#skills"><button type="button">Skills</button></a>
-            <a href="#contact"><button type="button">Contact Me</button></a>
+          <a href="#projects"><button type="button">Projects</button></a>
+          <a href="#skills"><button type="button">Skills</button></a>
+          <a href="#contact"><button type="button">Contact Me</button></a>
         </div>
-        <hr>
+        <hr />
         <my-projects id="projects"></my-projects>
         <my-skills id="skills"></my-skills>
         <contact-me id="contact"></contact-me>
+      </div>
+      <my-footer></my-footer>
     </div>
-    <my-footer></my-footer>
-</div>
-<script type="module" src="/main.js"></script>
-</body>
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>

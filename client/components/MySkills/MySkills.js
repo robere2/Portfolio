@@ -1,10 +1,10 @@
 import "./MySkills.css";
 
 class MySkills extends HTMLElement {
-	constructor() {
-		super();
+    constructor() {
+        super();
 
-		this.innerHTML = `
+        this.innerHTML = `
         <div class="row">
             <div class="col">
                 <h2>Languages</h2>
@@ -41,7 +41,7 @@ class MySkills extends HTMLElement {
 				</div>
             </div>
         </div>`;
-	}
+    }
 }
 
 export { MySkills };

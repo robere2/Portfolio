@@ -1,13 +1,13 @@
 my-alert {
-    padding: 20px;
-    display: block;
-    margin: 10px 0;
-    border-radius: 10px;
+  padding: 20px;
+  display: block;
+  margin: 10px 0;
+  border-radius: 10px;
 }
 
 my-alert[data-type="error"] {
-    background: var(--alert-error-background-color);
+  background: var(--alert-error-background-color);
 }
 my-alert[data-type="success"] {
-    background: var(--alert-success-background-color);
+  background: var(--alert-success-background-color);
 }

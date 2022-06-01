@@ -1,44 +1,49 @@
-.tech-section, .tech-section-content {
-    height: 17vh;
-    width: calc(100% - 20px);
-    padding-top: 10px;
+.tech-section,
+.tech-section-content {
+  height: 17vh;
+  width: calc(100% - 20px);
+  padding-top: 10px;
 }
 .tech-section {
-    position: relative;
+  position: relative;
 }
 .tech-section-content tech-icon {
-    margin: 0 20px;
-
+  margin: 0 20px;
 }
 .tech-section-fade {
-    position: absolute;
-    height: 17vh;
-    width: calc(100% - 20px);
-    /* 40px fade-in on both sides */
-    background-image: linear-gradient(to left, var(--background-color),
-        #00000000 40px, #00000000 calc(100% - 40px), var(--background-color) 100%);
-    z-index: 1;
-    pointer-events: none;
+  position: absolute;
+  height: 17vh;
+  width: calc(100% - 20px);
+  /* 40px fade-in on both sides */
+  background-image: linear-gradient(
+    to left,
+    var(--background-color),
+    #00000000 40px,
+    #00000000 calc(100% - 40px),
+    var(--background-color) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 .skills-description {
-    height: 1.5em;
-    padding: 0 10px;
-    font-style: italic;
-    opacity: 0.7;
-    font-size: 0.9em;
+  height: 1.5em;
+  padding: 0 10px;
+  font-style: italic;
+  opacity: 0.7;
+  font-size: 0.9em;
 }
-@media(min-width: 653px) and (max-width: 1169px) {
-    .skills-description {
-        height: 2.5em;
-    }
+@media (min-width: 653px) and (max-width: 1169px) {
+  .skills-description {
+    height: 2.5em;
+  }
 }
 @media (min-width: 501px) and (max-width: 652px) {
-    .skills-description {
-        height: 3.5em;
-    }
+  .skills-description {
+    height: 3.5em;
+  }
 }
 @media (max-width: 500px) {
-    .skills-description {
-        height: inherit;
-    }
+  .skills-description {
+    height: inherit;
+  }
 }

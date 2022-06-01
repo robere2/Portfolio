@@ -1,43 +1,45 @@
-
 label {
-    font-size: 18px;
+  font-size: 18px;
 }
-input, textarea {
-    border: 1px solid var(--input-border-color);
-    background-color: var(--input-color);
-    color: var(--input-text-color);
-    border-radius: 8px;
-    display: block;
-    padding: 12px;
-    width: calc(100% - 24px); /* 2 * padding (12px) */
-    margin-bottom: 15px;
+input,
+textarea {
+  border: 1px solid var(--input-border-color);
+  background-color: var(--input-color);
+  color: var(--input-text-color);
+  border-radius: 8px;
+  display: block;
+  padding: 12px;
+  width: calc(100% - 24px); /* 2 * padding (12px) */
+  margin-bottom: 15px;
 }
 #contact-body {
-    resize: none;
-    height: 150px;
+  resize: none;
+  height: 150px;
 }
-.name-wrapper, .email-wrapper {
-    width: 45%;
+.name-wrapper,
+.email-wrapper {
+  width: 45%;
 }
 .name-wrapper {
-    margin-right: 10%;
+  margin-right: 10%;
 }
 .recaptcha-branding {
-    display: block;
-    margin-bottom: 15px;
+  display: block;
+  margin-bottom: 15px;
 }
 /* Hide Google reCAPTCHA badge */
 /* https://developers.google.com/recaptcha/docs/faq */
 .grecaptcha-badge {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-@media(max-width: 500px) {
-    .name-wrapper, .email-wrapper {
-        width: inherit;
-    }
+@media (max-width: 500px) {
+  .name-wrapper,
+  .email-wrapper {
+    width: inherit;
+  }
 }
 
 .required {
-    color: var(--required-input-color);
+  color: var(--required-input-color);
 }

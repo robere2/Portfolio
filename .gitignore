@@ -25,3 +25,6 @@ dist-ssr
 
 # Azure Function config for local development
 api/**/local.settings.json
+
+# ESLint cache
+.eslintcache
