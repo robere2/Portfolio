@@ -67,11 +67,6 @@ jobs:
           cd client
           npm ci
 
-      - name: Build
-        run: |
-          cd client
-          npm run build
-
       - name: Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
