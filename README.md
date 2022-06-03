@@ -22,7 +22,7 @@ As few dependencies as possible are used, and new dependencies should be install
 
 ### Prerequisites
 
-You should have [Node.JS and NPM](https://nodejs.org/en/download/) installed on your computer. Node.js v16 is recommended, but Node.js v14 should be supported. If you have [nvm](https://github.com/nvm-sh/nvm) installed, you can switch to the correct Node.js version by running:
+You should have [Node.JS and NPM](https://nodejs.org/en/download/) installed on your computer. Node.js v16 is recommended, but v14 and v18 are also supported. If you have [nvm](https://github.com/nvm-sh/nvm) installed, you can switch to the correct Node.js version by running:
 
 ```shell
 nvm use
