@@ -19,11 +19,12 @@ jobs:
         with:
           submodules: true
       - name: Install dependencies
-      - run: cd api
-      - run: npm ci
-      - run: cd ../client
-      - run: npm ci
-      - run: cd ..
+        run: |
+          cd api
+          npm ci
+          cd ../client
+          npm ci
+          cd ..
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
