@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "npx eslint . --ext .js,.mjs,.cjs,.ts,.mts,.cts --cache && npx prettier --check .",
     "fix": "npx eslint . --ext .js,.mjs,.cjs,.ts,.mts,.cts --cache --fix && npx prettier --write . --ignore-unknown",
-    "prepare": "is-ci || cd .. && husky install api/.husky"
+    "prepare": "is-ci || (cd .. && husky install api/.husky)"
   },
   "repository": {
     "type": "git",
