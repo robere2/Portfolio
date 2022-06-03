@@ -43,7 +43,7 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     needs: lint
     runs-on: ubuntu-latest
-    name: Lint, Build, and Deploy
+    name: Build and Deploy
     steps:
       - uses: actions/checkout@v2
         with:
