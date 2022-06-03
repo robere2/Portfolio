@@ -13,11 +13,14 @@ jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Lint, Build, and Deploy
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
       - name: Install dependencies
         run: |
           cd api
@@ -25,7 +28,19 @@ jobs:
           cd ../client
           npm ci
           cd ..
-      - name: Build And Deploy
+      - name: Lint
+        run: |
+          cd api
+          npm run lint
+          cd ../client
+          npm run lint
+          cd ..
+      - name: Build
+        run: |
+          cd client
+          npm run build
+          cd ..
+      - name: Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
@@ -42,9 +57,9 @@ jobs:
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
-    name: Close Pull Request Job
+    name: Shutdown PR Stage
     steps:
-      - name: Close Pull Request
+      - name: Shutdown PR Stage
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
