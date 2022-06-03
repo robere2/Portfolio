@@ -1,15 +1,15 @@
 tech-icon {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    width: 80px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 80px;
+  text-align: center;
 }
 .tech-icon-icon {
-    align-self: center;
-    font-size: 2em;
-    color: var(--tech-icon-color);
+  align-self: center;
+  font-size: 2em;
+  color: var(--tech-icon-color);
 }
 .tech-icon-name {
-    align-self: center;
+  align-self: center;
 }

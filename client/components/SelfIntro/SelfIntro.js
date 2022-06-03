@@ -1,11 +1,10 @@
-import './SelfIntro.css'
-import headshot from '../../public/headshot.webp'
+import "./SelfIntro.css";
+import headshot from "../../public/headshot.webp";
 
 class SelfIntro extends HTMLElement {
-
-	constructor() {
-		super();
-		this.innerHTML = `
+    constructor() {
+        super();
+        this.innerHTML = `
 			<div class="row intro">
                 <h1 class="intro-text-title">Erik Roberts</h1>
 	            <div class="headshot-wrapper">
@@ -28,7 +27,7 @@ class SelfIntro extends HTMLElement {
                 <a class="profile-btn" href="https://www.npmjs.com/~bugfroggy" aria-label="NPM" rel="noopener"><i class="fab fa-npm"></i></a>
 			</div>
 		`;
-	}
+    }
 }
 
 export { SelfIntro };

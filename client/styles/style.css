@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Merriweather&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Koulen&family=Merriweather&display=swap");
 
 /* ----------------- */
 
 /* https://youtrack.jetbrains.com/issue/WEB-55382/Incorrect-CSS-inspection-for-media-query-prefers-contrast */
 /* High contrast */
 /*noinspection CssInvalidMediaFeature*/
-@media(prefers-contrast: more) {
+@media (prefers-contrast: more) {
   :root {
     --secondary: #000000;
     --title-color: #000000;
@@ -21,7 +20,7 @@
 }
 /* High contrast */
 /*noinspection CssInvalidMediaFeature*/
-@media(prefers-contrast: more) and (prefers-color-scheme: dark) {
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
   :root {
     --secondary: #ffffff;
     --title-color: #ffffff;
@@ -42,11 +41,20 @@ body {
   color: var(--paragraph-color);
   background-color: var(--background-color);
 }
-h1,h2,h3,h4,h5,h6,label,.koulen, .tabs button {
-  font-family: 'Koulen', cursive;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+.koulen,
+.tabs button {
+  font-family: "Koulen", cursive;
 }
-p,.merriweather {
-  font-family: 'Merriweather', serif;
+p,
+.merriweather {
+  font-family: "Merriweather", serif;
 }
 a {
   color: var(--primary);
@@ -73,8 +81,8 @@ button {
 .content {
   padding: 0 5%;
   max-width: 1200px;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .row {
   display: flex;
@@ -100,7 +108,7 @@ button {
 
 /* ----------------- */
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   .row {
     display: inherit;
   }
@@ -112,7 +120,6 @@ button {
     width: 100%;
   }
 }
-
 
 :root {
   --primary: #bd448d;
@@ -128,13 +135,13 @@ button {
   --tech-icon-color: #494848;
   --alert-error-background-color: #f9b2b2;
   --alert-success-background-color: #b9f9b2;
-  --github-logo-color: #12110E;
+  --github-logo-color: #12110e;
 }
 
 /* Dark mode */
-@media(prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --primary: #CB6CA5;
+    --primary: #cb6ca5;
     --secondary: #c2bcbc;
     --title-color: #fff3f3;
     --paragraph-color: #fff9f9;
