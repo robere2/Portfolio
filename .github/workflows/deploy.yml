@@ -57,19 +57,20 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
 
-      - name: Install dependencies
+      - name: Install API dependencies
         run: |
           cd api
           npm ci
+
+      - name: Install Client dependencies
+        run: |
           cd client
           npm ci
-          cd ..
 
       - name: Build
         run: |
           cd client
           npm run build
-          cd ..
 
       - name: Deploy
         id: builddeploy
