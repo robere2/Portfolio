@@ -89,6 +89,8 @@ Open the application at http://localhost:3000/
 
 ### Building
 
+#### Client
+
 The client can be built via:
 ```shell
 npm run build
@@ -97,6 +99,8 @@ This will output the built project to `/client/dist`. You can then start up a si
 ```shell
 npm run preview
 ```
+
+#### API
 
 The Azure Functions do not have any build steps.
 
@@ -125,15 +129,21 @@ You will also need to set up a custom reCAPTCHA profile for your domain. More in
 
 No test suite is currently available.
 
-Refer to issue #24.
+Refer to issue [#24](https://github.com/robere2/Portfolio/issues/24).
 
 ## Style guide
 
 This project follows the code guidelines found at [https://github.com/elsewhencode/project-guidelines](https://github.com/elsewhencode/project-guidelines).
 
+Pull requests must be linted before being merged. You can lint locally via `npm run lint` in both `api/` and `client/`. `npm run fix` will attempt to fix any linter issues.
+
+If development environment setup instructions were followed correctly, then a pre-commit hook should have been installed to automatically lint your staged files before committing. If your changes have any linting issues, then the commit will abort. Even if this is not set up, the GitHub Action will notice the issues for you. 
+
 ## Api Reference
 
 `/api/SubmitContact`
+
+Submit a "Contact Me" form.
 
 - POST
 - Requires body parameters: `name`, `email`, `subject`, `body`, `token`.
