@@ -50,6 +50,23 @@ jobs:
         with:
           submodules: true
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Install API dependencies
+        run: |
+          cd api
+          npm ci
+
+      - name: Install Client dependencies
+        run: |
+          cd client
+          npm ci
+
       - name: Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
