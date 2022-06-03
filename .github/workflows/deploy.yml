@@ -34,7 +34,7 @@ jobs:
           npm run lint
 
       - name: Lint Client
-        run: |
+      - run: |
           cd ../client
           npm ci
           npm run lint
