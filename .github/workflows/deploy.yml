@@ -28,13 +28,13 @@ jobs:
           cache: 'npm'
 
       - name: Lint API
-      - run: |
+        run: |
           cd api
           npm ci
           npm run lint
 
       - name: Lint Client
-      - run: |
+        run: |
           cd ../client
           npm ci
           npm run lint
