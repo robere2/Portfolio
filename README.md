@@ -1,5 +1,5 @@
 
-# Portfolio &middot; [![Azure Static Web Apps CI/CD](https://github.com/robere2/Portfolio/actions/workflows/azure-static-web-apps-icy-ocean-0dd89fe10.yml/badge.svg)](https://github.com/robere2/Portfolio/actions/workflows/azure-static-web-apps-icy-ocean-0dd89fe10.yml) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/robere2/Portfolio/blob/master/LICENSE)
+# Portfolio &middot; [![Deploy to Azure](https://github.com/robere2/Portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/robere2/Portfolio/actions/workflows/deploy.yml) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/robere2/Portfolio/blob/master/LICENSE)
 > Personal portfolio for Erik Roberts
 
 ## Installing / Getting started
