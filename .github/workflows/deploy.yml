@@ -1,4 +1,4 @@
-name: Azure Static Web Apps CI/CD
+name: Deploy to Azure
 
 on:
   push:
@@ -10,17 +10,45 @@ on:
       - master
 
 jobs:
-  build_and_deploy_job:
+  lint:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 14.x, 16.x, 18.x ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Lint API
+      - run: |
+          cd api
+          npm ci
+          npm run lint
+
+      - name: Lint Client
+        run: |
+          cd ../client
+          npm ci
+          npm run lint
+
+  build_and_deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    needs: lint
     runs-on: ubuntu-latest
     name: Lint, Build, and Deploy
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
+
       - name: Install dependencies
         run: |
           cd api
@@ -28,18 +56,13 @@ jobs:
           cd ../client
           npm ci
           cd ..
-      - name: Lint
-        run: |
-          cd api
-          npm run lint
-          cd ../client
-          npm run lint
-          cd ..
+
       - name: Build
         run: |
           cd client
           npm run build
           cd ..
+
       - name: Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -54,7 +77,7 @@ jobs:
           output_location: "/dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
-  close_pull_request_job:
+  close_pr_stage:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Shutdown PR Stage

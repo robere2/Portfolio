@@ -102,7 +102,7 @@ The Azure Functions do not have any build steps.
 
 ### Deploying / Publishing
 
-This project has full continuous deployment support for Azure Functions. Take a look at the [GitHub Workflow file](./.github/workflows/azure-static-web-apps-icy-ocean-0dd89fe10.yml) to see how it works.
+This project has full continuous deployment support for Azure Functions. Take a look at the [GitHub Workflow file](./.github/workflows/deploy.yml) to see how it works.
 
 ## Configuration
 
