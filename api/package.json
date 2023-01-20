@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/robere2/Portfolio#readme",
   "dependencies": {
-    "node-fetch": "^3.2.4"
+    "node-fetch": "^3.2.10"
   },
   "devDependencies": {
     "eslint": "^8.16.0",
