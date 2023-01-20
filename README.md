@@ -13,9 +13,9 @@ This project is also ready to be deployed to Azure Static Web Apps with CD.
 ### Built With
 
 Vite is used for bundle the application. The only runtime dependencies are:
-- `a11y-dialog` is currently used for dialog windows, but will be replaced as soon as the built-in `<dialog>` component receives higher support.
-- FontAwesome is used as a source for icons.
-- Google reCAPTCHA is used to protect against contact form spam.
+- [`a11y-dialog`](https://github.com/KittyGiraudel/a11y-dialog) is currently used for dialog windows, but will be replaced as soon as the built-in `<dialog>` component receives higher support.
+- [FontAwesome](https://fontawesome.com/) is used as a source for icons.
+- [Google reCAPTCHA](https://www.google.com/recaptcha/about/) is used to protect against contact form spam.
 
 As few dependencies as possible are used, and new dependencies should be installed sparingly.
 
