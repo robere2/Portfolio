@@ -42,30 +42,42 @@
   color: var(--github-logo-color);
 }
 
-.profile-btn .fa-linkedin {
-  /* Width & gradient adds the white background to match the actual logo */
-  width: 32px;
-  background: linear-gradient(
-    to top,
-    #ffffff00 25%,
-    #ffffff 25%,
-    #ffffff 90%,
-    #ffffff00 90%
-  );
+.profile-btn.linkedin {
   color: rgb(45, 100, 188);
 }
 
-.profile-btn .fa-npm {
-  /* Width & gradient adds the white background to match the actual logo */
-  width: 42px;
-  background: linear-gradient(
-    to top,
-    #ffffff00 37%,
-    #ffffff 37%,
-    #ffffff 70%,
-    #ffffff00 70%
-  );
+.profile-btn.linkedin::after {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  z-index: -1;
+  background-color: white;
+
+  left: 2.5%;
+  width: 95%;
+
+  top: 10%;
+  height: 70%;
+);
+}
+
+.profile-btn.npm {
   color: rgb(186, 38, 26);
+}
+
+.profile-btn.npm::after {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  z-index: -1;
+  background-color: white;
+
+  left: 2.5%;
+  width: 95%;
+
+  top: 30%;
+  height: 33.3%;
+  );
 }
 
 /* Break line earlier on larger displays, to allow room for the headshot */
