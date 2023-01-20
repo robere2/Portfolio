@@ -23,8 +23,8 @@ class SelfIntro extends HTMLElement {
 	        </div>
 	        <div class="profiles">
                 <a class="profile-btn" href="https://github.com/robere2" aria-label="GitHub" rel="noopener"><i class="fab fa-github"></i></a>
-                <a class="profile-btn" href="https://www.linkedin.com/in/erik-roberts-5664171a1/" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                <a class="profile-btn" href="https://www.npmjs.com/~bugfroggy" aria-label="NPM" rel="noopener"><i class="fab fa-npm"></i></a>
+                <a class="profile-btn linkedin" href="https://www.linkedin.com/in/erik-roberts-5664171a1/" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                <a class="profile-btn npm" href="https://www.npmjs.com/~bugfroggy" aria-label="NPM" rel="noopener"><i class="fab fa-npm"></i></a>
 			</div>
 		`;
     }
