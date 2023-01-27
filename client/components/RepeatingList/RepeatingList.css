@@ -2,12 +2,6 @@ repeating-list {
   position: absolute;
   display: flex;
   overflow: hidden;
-
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-repeating-list::-webkit-scrollbar {
-  display: none;
 }
 
 repeating-list:hover,
@@ -19,5 +13,15 @@ repeating-list:active {
 @media (prefers-reduced-motion: reduce) {
   repeating-list {
     overflow: scroll;
+  }
+}
+
+@media(prefers-reduced-motion: no-preference) {
+  repeating-list {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  repeating-list::-webkit-scrollbar {
+    display: none;
   }
 }

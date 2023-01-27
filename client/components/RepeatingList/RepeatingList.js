@@ -158,7 +158,7 @@ class RepeatingList extends HTMLElement {
                 const leftPos = this.getBoundingClientRect().left;
                 const centerPos = leftPos + this.clientWidth / 2;
                 // Distance from either edge in which the mouse cursor will cause movement
-                const scrollMargin = 200;
+                const scrollMargin = 250;
                 // Distance from either edge before the movement speed is proportional to distance from edge
                 const scrollPadding = 75;
                 const distanceFromEitherEdge = this.clientWidth / 2 -  Math.abs(centerPos - this.#lastKnownMouseX);
