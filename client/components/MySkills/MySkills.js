@@ -29,6 +29,9 @@ class MySkills extends HTMLElement {
 						<tech-icon data-name="Vue" data-icon="fab fa-vuejs"></tech-icon>
 						<tech-icon data-name="React" data-icon="fab fa-react"></tech-icon>
 						<tech-icon data-name="Angular" data-icon="fab fa-angular"></tech-icon>
+						<tech-icon data-name="NestJS" data-icon="fak fa-nestjs"></tech-icon>
+						<tech-icon data-name="GraphQL" data-icon="fak fa-graphql"></tech-icon>
+						<tech-icon data-name="PostgreSQL" data-icon="fak fa-postgres"></tech-icon>
 						<tech-icon data-name="MongoDB" data-icon="fak fa-mongodb"></tech-icon>
 						<tech-icon data-name="Microsoft Azure" data-icon="fak fa-azure"></tech-icon>
 						<tech-icon data-name="Amazon Web Services" data-icon="fab fa-aws"></tech-icon>
