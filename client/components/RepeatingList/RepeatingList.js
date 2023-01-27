@@ -43,6 +43,12 @@ class RepeatingList extends HTMLElement {
      * @type {[]}
      */
     #firstElementInstances = [];
+    /**
+     * Last known X position of the mouse cursor. Used for hover-based scrolling. Mouse position can only be fetched
+     *   when the user actually moves their mouse, so this is -1 if position isn't known.
+     * @type {number}
+     */
+    #lastKnownMouseX = -1;
 
     static get observedAttributes() {
         return ["data-margin-width"];
@@ -105,6 +111,10 @@ class RepeatingList extends HTMLElement {
         this.#lastRenderTimestamp = null;
         this.#lastRenderWasFrozen = false;
         this.innerHTML = ``;
+
+        this.onmousemove = (ev) => {
+            this.#lastKnownMouseX = ev.x;
+        }
     }
 
     /**
@@ -133,14 +143,34 @@ class RepeatingList extends HTMLElement {
         } else {
             this.#lastRenderWasFrozen = false;
             const speed = this.#getSpeed();
+            const timeDiff = timestamp - this.#lastRenderTimestamp;
+            const normalScrollSpeed = timeDiff / (this.#speedMultiplier / speed);
+
             // Auto-scroll if the user isn't hovering.
             if (
                 !this.matches(":hover") &&
                 !this.matches(":active") &&
                 this.#lastRenderTimestamp !== null
             ) {
-                const timeDiff = timestamp - this.#lastRenderTimestamp;
-                this.scrollLeft += timeDiff / (this.#speedMultiplier / speed);
+                this.scrollLeft += normalScrollSpeed;
+            } else {
+                // Scroll manually if the user is hovering
+                const leftPos = this.getBoundingClientRect().left;
+                const centerPos = leftPos + this.clientWidth / 2;
+                // Distance from either edge in which the mouse cursor will cause movement
+                const scrollMargin = 200;
+                // Distance from either edge before the movement speed is proportional to distance from edge
+                const scrollPadding = 75;
+                const distanceFromEitherEdge = this.clientWidth / 2 -  Math.abs(centerPos - this.#lastKnownMouseX);
+
+                // Scroll speed is adjusted to be proportional to mouse's position between the start of margins and
+                // start of padding, clamped between 0 and 1.
+                const adjustedScrollSpeed = normalScrollSpeed * (1 - Math.min(1, Math.max(0, ((distanceFromEitherEdge - scrollPadding) / (scrollMargin - scrollPadding)))))
+                if(this.#lastKnownMouseX < centerPos) {
+                    this.scrollLeft -= adjustedScrollSpeed;
+                } else {
+                    this.scrollLeft += adjustedScrollSpeed;
+                }
             }
 
             // If we've made a full loop by reaching the second instance of the first element,

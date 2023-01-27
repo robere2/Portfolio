@@ -2,11 +2,20 @@ repeating-list {
   position: absolute;
   display: flex;
   overflow: hidden;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
+repeating-list::-webkit-scrollbar {
+  display: none;
+}
+
 repeating-list:hover,
 repeating-list:active {
   overflow: scroll;
+
 }
+
 @media (prefers-reduced-motion: reduce) {
   repeating-list {
     overflow: scroll;
