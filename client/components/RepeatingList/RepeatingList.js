@@ -114,7 +114,7 @@ class RepeatingList extends HTMLElement {
 
         this.onmousemove = (ev) => {
             this.#lastKnownMouseX = ev.x;
-        }
+        };
     }
 
     /**
@@ -144,7 +144,8 @@ class RepeatingList extends HTMLElement {
             this.#lastRenderWasFrozen = false;
             const speed = this.#getSpeed();
             const timeDiff = timestamp - this.#lastRenderTimestamp;
-            const normalScrollSpeed = timeDiff / (this.#speedMultiplier / speed);
+            const normalScrollSpeed =
+                timeDiff / (this.#speedMultiplier / speed);
 
             // Auto-scroll if the user isn't hovering.
             if (
@@ -161,12 +162,24 @@ class RepeatingList extends HTMLElement {
                 const scrollMargin = 250;
                 // Distance from either edge before the movement speed is proportional to distance from edge
                 const scrollPadding = 75;
-                const distanceFromEitherEdge = this.clientWidth / 2 -  Math.abs(centerPos - this.#lastKnownMouseX);
+                const distanceFromEitherEdge =
+                    this.clientWidth / 2 -
+                    Math.abs(centerPos - this.#lastKnownMouseX);
 
                 // Scroll speed is adjusted to be proportional to mouse's position between the start of margins and
                 // start of padding, clamped between 0 and 1.
-                const adjustedScrollSpeed = normalScrollSpeed * (1 - Math.min(1, Math.max(0, ((distanceFromEitherEdge - scrollPadding) / (scrollMargin - scrollPadding)))))
-                if(this.#lastKnownMouseX < centerPos) {
+                const adjustedScrollSpeed =
+                    normalScrollSpeed *
+                    (1 -
+                        Math.min(
+                            1,
+                            Math.max(
+                                0,
+                                (distanceFromEitherEdge - scrollPadding) /
+                                    (scrollMargin - scrollPadding)
+                            )
+                        ));
+                if (this.#lastKnownMouseX < centerPos) {
                     this.scrollLeft -= adjustedScrollSpeed;
                 } else {
                     this.scrollLeft += adjustedScrollSpeed;

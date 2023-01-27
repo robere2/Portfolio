@@ -7,7 +7,6 @@ repeating-list {
 repeating-list:hover,
 repeating-list:active {
   overflow: scroll;
-
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -16,10 +15,10 @@ repeating-list:active {
   }
 }
 
-@media(prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   repeating-list {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
   repeating-list::-webkit-scrollbar {
     display: none;
