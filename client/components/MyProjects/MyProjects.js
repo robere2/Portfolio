@@ -11,27 +11,45 @@ class MyProjects extends HTMLElement {
 					<p>
 						Glimpse is the infrastructure behind RPI TV, the television club at Rensselaer Polytechnic
 						Institute. I worked on it through most of my college career. It is responsible for the creation
-						and management of club events, communication channels, and more. You can visit the web page at
-						<a href="https://rpi.tv/" rel="noopener">https://rpi.tv/</a>.  
+						and management of club events, communication channels, and more. 
 					</p>
+					
+                    <ul class="merriweather links-list">
+                        <li>
+                            <a href="https://rpi.tv/" rel="noopener">Website</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/orgs/rpitv/repositories?q=glimpse&type=source&language=&sort=" rel="noopener">Repositories</a>
+                        </li>
+                    </ul>  
 				</div>
 				<div>
 					<h2>Badlion Client</h2>
 					<p>
 						I worked on the Badlion Client during the Summer of 2021. Badlion Client is a modded version of
-						Minecraft with a large set of features and enhancements for multiplayer gameplay. You can
-						download it at <a href="https://client.badlion.net/" rel="noopener">https://client.badlion.net/</a>.   
+						Minecraft with a large set of features and enhancements for multiplayer gameplay.
 					</p>
+					<ul class="merriweather links-list">
+                        <li>
+                            <a href="https://client.badlion.net/" rel="noopener">Website</a>
+                        </li>
+                    </ul>  
 				</div>
 				<div>
 					<h2>Quickplay</h2>
 					<p>
 						Quickplay is a Minecraft mod I founded in 2016 with the goal of navigating around multiplayer 
 						servers faster. While the project is still active, I have mostly stepped away from development
-						and instead focus on maintenance, infrastructure/deployment, and general oversight. You can
-						download or view its source code at
-						<a href="https://github.com/quickplaymod" rel="noopener">https://github.com/quickplaymod</a>.
+						and instead focus on maintenance, infrastructure/deployment, and general oversight.
 					</p>
+					<ul class="merriweather links-list">
+                        <li>
+                            <a href="https://bugg.co/quickplay" rel="noopener">Website</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/quickplaymod" rel="noopener">Repositories</a>
+                        </li>
+                    </ul>  
 				</div>
 			</div>
 		`;
