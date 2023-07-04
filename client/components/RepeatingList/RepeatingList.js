@@ -74,10 +74,10 @@ class RepeatingList extends HTMLElement {
         };
 
         // Add all elements once at first
-        for(let i = 0; i < this.#listElements.length; i++) {
+        for (let i = 0; i < this.#listElements.length; i++) {
             const element = this.#listElements[i].cloneNode(true);
             this.append(element);
-            if(i === 0) {
+            if (i === 0) {
                 this.#firstElementInstances.push(element);
             }
         }
@@ -87,18 +87,22 @@ class RepeatingList extends HTMLElement {
         ).matches;
         // Repeat adding elements until we've reached the width of the list, to make the transition of jumping back to
         //   the first element seamless.
-        if(this.scrollWidth > this.clientWidth && !shouldReduceAnimation) {
+        if (this.scrollWidth > this.clientWidth && !shouldReduceAnimation) {
             let repeatedWidth = 0;
-            for (let i = 0; repeatedWidth < this.clientWidth && i < this.#listElements.length; i++) {
+            for (
+                let i = 0;
+                repeatedWidth < this.clientWidth &&
+                i < this.#listElements.length;
+                i++
+            ) {
                 const element = this.#listElements[i].cloneNode(true);
                 this.append(element);
-                if(i === 0) {
+                if (i === 0) {
                     this.#firstElementInstances.push(element);
                 }
                 repeatedWidth += element.clientWidth;
             }
         }
-
     }
 
     /**
@@ -108,8 +112,7 @@ class RepeatingList extends HTMLElement {
     render(timestamp) {
         const speed = this.#getSpeed();
         const timeDiff = timestamp - this.#lastRenderTimestamp;
-        const normalScrollSpeed =
-            timeDiff / (this.#speedMultiplier / speed);
+        const normalScrollSpeed = timeDiff / (this.#speedMultiplier / speed);
 
         // Auto-scroll if the user isn't hovering.
         if (
@@ -140,12 +143,12 @@ class RepeatingList extends HTMLElement {
                         Math.max(
                             0,
                             (distanceFromEitherEdge - scrollPadding) /
-                            (scrollMargin - scrollPadding)
+                                (scrollMargin - scrollPadding)
                         )
-                    )) * 3;
+                    )) *
+                3;
             if (this.#lastKnownMouseX < centerPos) {
                 this.scrollLeft -= adjustedScrollSpeed;
-
             } else {
                 this.scrollLeft += adjustedScrollSpeed;
             }
