@@ -118,7 +118,10 @@ If you intend to deploy this application on a domain other than [https://ecr.dev
 * `fa-azure`
 * `fa-cpp`
 * `fa-electron`
+* `fa-graphql`
 * `fa-mongodb`
+* `fa-nestjs`
+* `fa-postgres`
 
 More information available on [FontAwesome's website](https://fontawesome.com/docs/web/setup/use-kit).
 
