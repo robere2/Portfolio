@@ -158,7 +158,7 @@ class RepeatingList extends HTMLElement {
         }
 
         // Once we've reached at least one full pixel, scroll by that pixel(s) and then remove it from the next scroll.
-        if(Math.abs(this.#nextScrollLeft) >= 1) {
+        if (Math.abs(this.#nextScrollLeft) >= 1) {
             this.scrollLeft += Math.trunc(this.#nextScrollLeft);
             this.#nextScrollLeft = this.#nextScrollLeft % 1;
         }
