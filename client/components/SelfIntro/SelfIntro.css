@@ -43,6 +43,7 @@
 }
 
 .profile-btn.linkedin {
+  position: relative;
   color: rgb(45, 100, 188);
 }
 
@@ -61,6 +62,7 @@
 }
 
 .profile-btn.npm {
+  position: relative;
   color: rgb(186, 38, 26);
 }
 
