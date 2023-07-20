@@ -31,6 +31,13 @@ class RepeatingList extends HTMLElement {
      * @type {number}
      */
     #lastKnownMouseX = -1;
+    /**
+     * scrollLeft cannot take fractional values in some browsers, so we store the next scrollLeft value here and
+     *   attempt to add it's non-fractional value to the actual scrollLeft value every frame. E.g., if this value
+     *   is 4.25, then on the next frame, 4 will be added to scrollLeft and this will be set back to 0.25.
+     * @type {number}
+     */
+    #nextScrollLeft = 0;
 
     constructor() {
         super();
@@ -43,10 +50,6 @@ class RepeatingList extends HTMLElement {
     connectedCallback() {
         this.setup();
         requestAnimationFrame(this.render.bind(this));
-    }
-
-    attributeChangedCallback() {
-        this.setup();
     }
 
     /**
@@ -120,7 +123,7 @@ class RepeatingList extends HTMLElement {
             !this.matches(":active") &&
             this.#lastRenderTimestamp !== null
         ) {
-            this.scrollLeft += normalScrollSpeed;
+            this.#nextScrollLeft += normalScrollSpeed;
         } else {
             // Scroll manually if the user is hovering
             const leftPos = this.getBoundingClientRect().left;
@@ -148,10 +151,16 @@ class RepeatingList extends HTMLElement {
                     )) *
                 3;
             if (this.#lastKnownMouseX < centerPos) {
-                this.scrollLeft -= adjustedScrollSpeed;
+                this.#nextScrollLeft -= adjustedScrollSpeed;
             } else {
-                this.scrollLeft += adjustedScrollSpeed;
+                this.#nextScrollLeft += adjustedScrollSpeed;
             }
+        }
+
+        // Once we've reached at least one full pixel, scroll by that pixel(s) and then remove it from the next scroll.
+        if(Math.abs(this.#nextScrollLeft) >= 1) {
+            this.scrollLeft += Math.trunc(this.#nextScrollLeft);
+            this.#nextScrollLeft = this.#nextScrollLeft % 1;
         }
 
         // If we've made a full loop by reaching the second instance of the first element,
