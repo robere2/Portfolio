@@ -19,7 +19,7 @@ class MyProjects extends HTMLElement {
                             <a href="https://rpi.tv/" rel="noopener">Website</a>
                         </li>
                         <li>
-                            <a href="https://github.com/orgs/rpitv/repositories?q=glimpse&type=source&language=&sort=" rel="noopener">Repositories</a>
+                            <a href="https://github.com/rpitv/glimpse" rel="noopener">Repository</a>
                         </li>
                     </ul>  
 				</div>
