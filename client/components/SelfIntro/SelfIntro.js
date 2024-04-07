@@ -13,9 +13,9 @@ class SelfIntro extends HTMLElement {
 	        </div>
 	        <div class="row">
 	            <div class="intro-text-body">
-                    <h2 class="intro-text-subtitle">Full Stack Developer</h2>
+                    <h2 class="intro-text-subtitle">Software Engineer</h2>
 	                <p>
-	                    Hi, my name is Erik. I'm a software engineer with a particular love for JavaScript and the web.
+	                    Hi, my name is Erik. I'm a software engineer with a particular love for JavaScript, the web, and the developer experience.
 	                    I'm a Computer Science graduate from the Class of 2022 at Rensselaer Polytechnic Institute.
 	                </p>
 	            </div>
