@@ -50,7 +50,7 @@ class MySkills extends HTMLElement {
 						<tech-icon data-name="Linux" data-icon="fab fa-linux"></tech-icon>
 						<tech-icon data-name="FFmpeg" data-icon="fas fa-video-arrow-up-right"></tech-icon>
 						<tech-icon data-name="Discord API" data-icon="fab fa-discord"></tech-icon>
-						<tech-icon data-name="Minecraft APIs" data-icon="fal fa-cube"></tech-icon>
+						<tech-icon data-name="Minecraft APIs" data-icon="fak fa-minecraft"></tech-icon>
 	                </repeating-list>
 				</div>
             </div>
