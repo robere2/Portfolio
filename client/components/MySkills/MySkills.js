@@ -22,24 +22,35 @@ class MySkills extends HTMLElement {
             </div>
             <div class="col">
                 <h2>Technologies</h2>
-                <p class="skills-description">This is just some of the technologies I have worked with the most.</p>
+                <p class="skills-description">This is just some of the technologies and skills I have worked with the most.</p>
                 <div class="tech-section tech">
                 	<div class="tech-section-fade"></div>
 	                <repeating-list class="tech-section-content">
 						<tech-icon data-name="Vue" data-icon="fab fa-vuejs"></tech-icon>
 						<tech-icon data-name="React" data-icon="fab fa-react"></tech-icon>
 						<tech-icon data-name="Angular" data-icon="fab fa-angular"></tech-icon>
+						<tech-icon data-name="Node.js" data-icon="fab fa-node"></tech-icon>
 						<tech-icon data-name="NestJS" data-icon="fak fa-nestjs"></tech-icon>
+						<tech-icon data-name="Sass" data-icon="fab fa-sass"></tech-icon>
 						<tech-icon data-name="GraphQL" data-icon="fak fa-graphql"></tech-icon>
 						<tech-icon data-name="PostgreSQL" data-icon="fak fa-postgres"></tech-icon>
 						<tech-icon data-name="MongoDB" data-icon="fak fa-mongodb"></tech-icon>
+						<tech-icon data-name="Jira & Confluence" data-icon="fab fa-atlassian"></tech-icon>
+						<tech-icon data-name="Agile Methodology" data-icon="fas fa-person-running-fast"></tech-icon>
 						<tech-icon data-name="Microsoft Azure" data-icon="fak fa-azure"></tech-icon>
 						<tech-icon data-name="Amazon Web Services" data-icon="fab fa-aws"></tech-icon>
 						<tech-icon data-name="Docker" data-icon="fab fa-docker"></tech-icon>
-						<tech-icon data-name="GitHub Actions" data-icon="fab fa-github"></tech-icon>
+						<tech-icon data-name="Redis" data-icon="fak fa-redis"></tech-icon>
+						<tech-icon data-name="RabbitMQ" data-icon="fak fa-rabbitmq"></tech-icon>
+						<tech-icon data-name="CI/CD" data-icon="fas fa-pipe-valve"></tech-icon>
+						<tech-icon data-name="GitHub" data-icon="fab fa-github"></tech-icon>
+						<tech-icon data-name="Cloudflare" data-icon="fab fa-cloudflare"></tech-icon>
+						<tech-icon data-name="Networking Protocols" data-icon="fal fa-network-wired"></tech-icon>
 						<tech-icon data-name="Browser Extensions" data-icon="fal fa-browser"></tech-icon>
+						<tech-icon data-name="Linux" data-icon="fab fa-linux"></tech-icon>
+						<tech-icon data-name="FFmpeg" data-icon="fas fa-video-arrow-up-right"></tech-icon>
 						<tech-icon data-name="Discord API" data-icon="fab fa-discord"></tech-icon>
-						<tech-icon data-name="Minecraft Forge" data-icon="fal fa-cube"></tech-icon>
+						<tech-icon data-name="Minecraft APIs" data-icon="fal fa-cube"></tech-icon>
 	                </repeating-list>
 				</div>
             </div>
