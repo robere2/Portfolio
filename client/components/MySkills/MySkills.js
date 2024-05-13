@@ -22,7 +22,7 @@ class MySkills extends HTMLElement {
             </div>
             <div class="col">
                 <h2>Technologies</h2>
-                <p class="skills-description">This is just some of the technologies and skills I have worked with the most.</p>
+                <p class="skills-description">This is just some of the skills and technologies I have worked with the most.</p>
                 <div class="tech-section tech">
                 	<div class="tech-section-fade"></div>
 	                <repeating-list class="tech-section-content">
