@@ -16,6 +16,7 @@ class MySkills extends HTMLElement {
 						<tech-icon data-name="HTML/CSS" data-icon="fab fa-html5"></tech-icon>
 						<tech-icon data-name="Java" data-icon="fab fa-java"></tech-icon>
 						<tech-icon data-name="C/C++" data-icon="fak fa-cpp"></tech-icon>
+						<tech-icon data-name="Lua" data-icon="fak fa-lua"></tech-icon>
 						<tech-icon data-name="SQL" data-icon="fal fa-database"></tech-icon>
 					</repeating-list>
 				</div>
