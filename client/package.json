@@ -36,7 +36,7 @@
     "vite": "^2.9.18"
   },
   "dependencies": {
-    "esbuild": "^0.14.39",
+    "esbuild": "^0.25.0",
     "is-core-module": "^2.9.0",
     "has": "^1.0.3",
     "resolve": "^1.22.0",
