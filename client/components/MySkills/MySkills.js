@@ -33,11 +33,13 @@ class MySkills extends HTMLElement {
 						<tech-icon data-name="Node.js" data-icon="fab fa-node"></tech-icon>
 						<tech-icon data-name="NestJS" data-icon="fak fa-nestjs"></tech-icon>
 						<tech-icon data-name="Sass" data-icon="fab fa-sass"></tech-icon>
+						<tech-icon data-name="WordPress" data-icon="fab fa-wordpress"></tech-icon>
 						<tech-icon data-name="GraphQL" data-icon="fak fa-graphql"></tech-icon>
 						<tech-icon data-name="PostgreSQL" data-icon="fak fa-postgres"></tech-icon>
 						<tech-icon data-name="MongoDB" data-icon="fak fa-mongodb"></tech-icon>
 						<tech-icon data-name="Jira & Confluence" data-icon="fab fa-atlassian"></tech-icon>
 						<tech-icon data-name="Agile Methodology" data-icon="fas fa-person-running-fast"></tech-icon>
+						<tech-icon data-name="Microsoft 365 Business" data-icon="fab fa-microsoft"></tech-icon>
 						<tech-icon data-name="Microsoft Azure" data-icon="fak fa-azure"></tech-icon>
 						<tech-icon data-name="Amazon Web Services" data-icon="fab fa-aws"></tech-icon>
 						<tech-icon data-name="Docker" data-icon="fab fa-docker"></tech-icon>
