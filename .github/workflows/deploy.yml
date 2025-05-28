@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ 20.x, 22.x ]
+        node-version: [ 20.x ]
 
     steps:
       - uses: actions/checkout@v3
@@ -93,3 +93,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_OCEAN_0DD89FE10 }}
           action: "close"
+          app_location: "/client"
