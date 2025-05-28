@@ -125,6 +125,7 @@ If you intend to deploy this application on a domain other than [https://ecr.dev
 * `fa-redis`
 * `fa-rabbitmq`
 * `fa-minecraft`
+* `fa-lua`
 
 More information available on [FontAwesome's website](https://fontawesome.com/docs/web/setup/use-kit).
 
