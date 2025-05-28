@@ -1,15 +1,40 @@
 import fetch from "node-fetch";
+import FormData from "form-data";
 
 async function assess(token, ip) {
   let body = `response=${token}&secret=${process.env.RecaptchaSecret}`;
   if (ip) {
-    body += `&ip=${ip}`;
+    body += `&remoteip=${ip}`;
   }
   return fetch("https://www.google.com/recaptcha/api/siteverify", {
     method: "POST",
     body: body,
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
   });
+}
+
+async function sendEmail(name, email, subject, body) {
+  const form = new FormData();
+  form.append("from", `${name} <${process.env.SenderEmail}>`);
+  form.append("h:Reply-To", `${name} <${email}>`);
+  form.append("to", `${process.env.RecipientEmail}`);
+  form.append("subject", "[CONTACT] " + subject);
+  form.append("text", body);
+
+  const response = await fetch("https://api.mailgun.net/v3/ecr.dev/messages", {
+    method: "POST",
+    headers: {
+      Authorization:
+        "Basic " +
+        Buffer.from(`api:${process.env.MailgunApiKey}`).toString("base64"),
+      ...form.getHeaders(),
+    },
+    body: form,
+  });
+
+  if (response.status !== 200) {
+    throw new Error(response.statusText + ": " + (await response.text()));
+  }
 }
 
 export default async function (context, req) {
@@ -111,34 +136,26 @@ export default async function (context, req) {
     };
   }
 
+  try {
+    await sendEmail(name, email, subject, body);
+  } catch (err) {
+    console.error(err);
+    return {
+      httpResponse: {
+        status: 500,
+        body: {
+          error: "Failed to send email. Please try again later.",
+        },
+      },
+    };
+  }
+
   return {
     httpResponse: {
       body: {
         message:
           "Thank you for contacting me! I will get back to you as soon as possible.",
       },
-    },
-    emailOutput: {
-      personalizations: [
-        {
-          to: [{ email: process.env.RecipientEmail }],
-        },
-      ],
-      reply_to: {
-        email: email,
-        name: name,
-      },
-      from: {
-        email: process.env.SenderEmail,
-        name: name,
-      },
-      subject: "[CONTACT] " + subject,
-      content: [
-        {
-          type: "text/plain",
-          value: body,
-        },
-      ],
     },
   };
 }

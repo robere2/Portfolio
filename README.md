@@ -21,7 +21,7 @@ As few dependencies as possible are used, and new dependencies should be install
 
 ### Prerequisites
 
-You should have [Node.JS and NPM](https://nodejs.org/en/download/) installed on your computer. Node.js v22 is recommended, but v20 is also supported. If you have [nvm](https://github.com/nvm-sh/nvm) installed, you can switch to the correct Node.js version by running:
+You should have [Node.JS and NPM](https://nodejs.org/en/download/) installed on your computer. Node.js v20 is currently the latest supported runtime in Azure. If you have [nvm](https://github.com/nvm-sh/nvm) installed, you can switch to the correct Node.js version by running:
 
 ```shell
 nvm use
@@ -30,7 +30,7 @@ nvm use
 If you intend to develop and run Azure Functions locally, you also need to install the Azure SWA CLI:
 
 ```shell
-npm install -g @azure/static-web-apps-cli azure-functions-core-tools@3
+npm install -g @azure/static-web-apps-cli azure-functions-core-tools@4
 ```
 
 
