@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/robere2/Portfolio#readme",
   "dependencies": {
+    "form-data": "^4.0.2",
     "node-fetch": "^3.2.10"
   },
   "devDependencies": {
