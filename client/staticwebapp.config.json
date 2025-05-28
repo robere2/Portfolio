@@ -1,6 +1,6 @@
 {
   "platform": {
-    "apiRuntime": "node:16"
+    "apiRuntime": "node:20"
   },
   "trailingSlash": "auto"
 }
