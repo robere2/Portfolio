@@ -84,7 +84,7 @@ To run without functions enabled, simply run:
 cd client
 npm run dev
 ```
-Open the application at http://localhost:3000/
+Open the application at http://localhost:5173/
 
 ### Building
 
